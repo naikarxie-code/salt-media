@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import Navigation from "@/components/ui/Navigation";
 import AmbientParticles from "@/components/ui/AmbientParticles";
 import HorizontalScroll from "@/components/ui/HorizontalScroll";
+import TextMarquee from "@/components/ui/TextMarquee";
 import VideoHeroSection from "@/components/sections/VideoHeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import OpportunitySection from "@/components/sections/OpportunitySection";
@@ -32,15 +33,19 @@ function PanelWrapper({ children }: { children: ReactNode }) {
 /** Decorative pivot between the vertical and horizontal halves */
 function HorizontalTransitionMarker() {
   return (
-    <div className="relative flex items-center justify-center py-8 overflow-hidden">
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent" />
-      <div className="absolute flex items-center gap-3 bg-black px-6">
-        <div className="w-2 h-2 rounded-full border border-neutral-600" />
-        <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600">
-          Scroll to Explore
-        </span>
-        <div className="w-2 h-2 rounded-full border border-neutral-600" />
-      </div>
+    <div className="relative overflow-hidden py-4">
+      <TextMarquee
+        amberAccent
+        direction="left"
+        items={[
+          "SWIPE OR SCROLL TO EXPLORE HORIZONTAL PANELS",
+          "SALT MEDIA CONTENT UNIVERSE",
+          "AMAZON MX PLAYER AFP",
+          "CO-DEVELOPMENT MODEL",
+          "11+ YEARS CRAFT",
+          "100+ BRAND COLLABORATIONS",
+        ]}
+      />
     </div>
   );
 }
@@ -58,6 +63,9 @@ export default function Home() {
         <VideoHeroSection />
 
         <AboutSection />
+
+        <TextMarquee direction="right" speed={20} />
+
         <OpportunitySection />
         <EcosystemSection />
 
