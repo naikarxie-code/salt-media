@@ -17,18 +17,17 @@ export default function HorizontalScroll({ children }: { children: ReactNode }) 
     const slider = sliderRef.current;
     if (!container || !slider) return;
 
-    const panels = gsap.utils.toArray<HTMLElement>(".h-panel", slider);
-    const totalWidth = (panels.length - 1) * window.innerWidth;
-
     const ctx = gsap.context(() => {
+      const getScrollAmount = () => slider.scrollWidth - window.innerWidth;
+
       gsap.to(slider, {
-        x: -totalWidth,
+        x: () => -getScrollAmount(),
         ease: "none",
         scrollTrigger: {
           trigger: container,
           start: "top top",
-          end: () => `+=${totalWidth}`,
-          scrub: 1,
+          end: () => `+=${getScrollAmount()}`,
+          scrub: 1.2,
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
@@ -40,10 +39,10 @@ export default function HorizontalScroll({ children }: { children: ReactNode }) 
   }, []);
 
   return (
-    <div ref={containerRef} style={{ overflow: "hidden" }}>
+    <div ref={containerRef} className="relative overflow-hidden w-full">
       <div
         ref={sliderRef}
-        style={{ display: "flex", width: "fit-content", willChange: "transform" }}
+        className="flex w-max flex-nowrap will-change-transform"
       >
         {children}
       </div>
