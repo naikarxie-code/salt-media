@@ -12,7 +12,7 @@ export default function StarterTerritoriesSection() {
   return (
     <section
       id="starter-territories"
-      className="relative py-12 md:py-16 px-6 md:px-16 lg:px-24 overflow-hidden bg-black"
+      className="relative py-12 md:py-20 px-6 md:px-16 lg:px-24 overflow-hidden bg-black flex flex-col justify-center min-h-screen"
     >
       {/* ── Background Aesthetics ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -55,21 +55,21 @@ export default function StarterTerritoriesSection() {
       </Reveal>
 
       {/* Interactive Starter Territories Selector */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Territory Tabs */}
-        <div className="lg:col-span-5 space-y-2.5">
+        <div className="lg:col-span-5 space-y-3">
           {STARTER_TERRITORIES.map((item, idx) => (
             <button
               key={idx}
               onClick={() => setActiveTerritory(idx)}
-              className={`w-full p-3.5 md:p-4 rounded-2xl border text-left transition-all duration-300 ${
+              className={`w-full p-4 rounded-2xl border text-left transition-all duration-300 ${
                 activeTerritory === idx
                   ? "border-amber-400 bg-neutral-900 shadow-[0_0_25px_rgba(245,158,11,0.15)] scale-[1.01]"
                   : "border-neutral-800/80 bg-neutral-950/60 hover:border-neutral-700"
               }`}
             >
               <div className="flex items-center gap-3 mb-1">
-                <span className="text-amber-400 font-mono text-xs font-bold px-2 py-0.5 rounded bg-amber-400/10 border border-amber-400/20">
+                <span className="text-amber-400 font-mono text-xs font-bold px-2.5 py-0.5 rounded bg-amber-400/10 border border-amber-400/20">
                   {item.number}
                 </span>
                 <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
@@ -105,14 +105,14 @@ export default function StarterTerritoriesSection() {
             </p>
 
             <div className="space-y-3 mb-4">
-              <div className="p-3 rounded-xl border border-neutral-800 bg-black/50">
+              <div className="p-3.5 rounded-xl border border-neutral-800 bg-black/50">
                 <span className="text-[10px] uppercase font-mono tracking-widest text-amber-400 font-semibold block mb-0.5">
                   TARGET AUDIENCE
                 </span>
                 <p className="text-xs md:text-sm text-neutral-300">{territory.audience}</p>
               </div>
 
-              <div className="p-3 rounded-xl border border-amber-400/30 bg-amber-950/20">
+              <div className="p-3.5 rounded-xl border border-amber-400/30 bg-amber-950/20">
                 <span className="text-[10px] uppercase font-mono tracking-widest text-amber-400 font-semibold block mb-0.5">
                   BRAND INTEGRATION OPPORTUNITY
                 </span>
@@ -127,7 +127,7 @@ export default function StarterTerritoriesSection() {
               </span>
               <div className="flex flex-wrap gap-2">
                 {territory.outputStack.map((out, i) => (
-                  <span key={i} className="text-xs font-mono px-2.5 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">
+                  <span key={i} className="text-xs font-mono px-3 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">
                     ✓ {out}
                   </span>
                 ))}
@@ -141,37 +141,6 @@ export default function StarterTerritoriesSection() {
               PITCH TREATMENT →
             </a>
           </div>
-        </div>
-      </div>
-
-      {/* ── SUBSECTION: ONE IDEA → MANY CONTENT OUTPUTS PIPELINE (08b) ── */}
-      <div className="relative z-10 p-6 rounded-3xl border border-neutral-800 bg-neutral-950/80 backdrop-blur-xl">
-        <div className="mb-4">
-          <span className="text-xs uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold block mb-1">
-            OUTPUT STACK ARCHITECTURE
-          </span>
-          <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
-            One Hero Idea → Entire Content Ecosystem
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
-          {OUTPUT_STACK.map((item, idx) => (
-            <div
-              key={idx}
-              className="p-3.5 rounded-xl border border-neutral-800 bg-black/60 hover:border-amber-400/40 transition-all duration-300 relative group"
-            >
-              <span className="text-amber-400 font-mono text-[10px] font-bold block mb-1">
-                0{idx + 1}
-              </span>
-              <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-1.5">
-                {item.level}
-              </h4>
-              <p className="text-[11px] text-neutral-400 font-light leading-snug">
-                {item.desc}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

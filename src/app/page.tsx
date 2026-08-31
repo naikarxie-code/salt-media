@@ -12,6 +12,7 @@ import ContentSection from "@/components/sections/ContentSection";
 import AmazonAFPSection from "@/components/sections/AmazonAFPSection";
 import StrategySection from "@/components/sections/StrategySection";
 import StarterTerritoriesSection from "@/components/sections/StarterTerritoriesSection";
+import OutputStackSection from "@/components/sections/OutputStackSection";
 import ImpactSection from "@/components/sections/ImpactSection";
 import ContactSection from "@/components/sections/ContactSection";
 
@@ -79,6 +80,10 @@ export default function Home() {
 
           <PanelWrapper>
             <StarterTerritoriesSection />
+          </PanelWrapper>
+
+          <PanelWrapper>
+            <OutputStackSection />
           </PanelWrapper>
 
           <PanelWrapper>
