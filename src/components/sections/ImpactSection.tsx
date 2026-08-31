@@ -59,7 +59,11 @@ export default function ImpactSection() {
               <div>
                 <AnimatedCounter
                   value={stat.value}
-                  className="text-4xl md:text-5xl font-bold tracking-tight block mb-2 text-white"
+                  className={`font-bold tracking-tight block mb-2 text-white ${
+                    /^\d/.test(stat.value)
+                      ? "text-4xl md:text-5xl"
+                      : "text-2xl md:text-3xl lg:text-4xl leading-tight"
+                  }`}
                 />
                 <span className="text-sm font-semibold tracking-wider font-mono text-amber-400 block mb-2">
                   {stat.label}
