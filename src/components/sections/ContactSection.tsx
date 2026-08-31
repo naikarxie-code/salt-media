@@ -7,7 +7,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="h-panel w-screen min-h-screen lg:h-screen flex-shrink-0 relative py-12 md:py-16 px-6 md:px-16 lg:px-24 overflow-y-auto overflow-x-hidden bg-black border-t border-neutral-900"
+      className="relative py-20 md:py-32 px-6 md:px-16 lg:px-24 overflow-hidden bg-black border-t border-neutral-900"
     >
       {/* ── Background Aesthetics ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

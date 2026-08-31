@@ -7,7 +7,7 @@ export default function AmazonAFPSection() {
   return (
     <section
       id="amazon-afp"
-      className="h-panel w-screen min-h-screen lg:h-screen flex-shrink-0 relative py-12 md:py-16 px-6 md:px-16 lg:px-24 overflow-y-auto overflow-x-hidden bg-black"
+      className="relative py-16 md:py-24 px-6 md:px-16 lg:px-24 overflow-hidden bg-black"
     >
       {/* ── Background Aesthetics ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

@@ -17,32 +17,40 @@ export default function HorizontalScroll({ children }: { children: ReactNode }) 
     const slider = sliderRef.current;
     if (!container || !slider) return;
 
-    const ctx = gsap.context(() => {
-      const getScrollAmount = () => slider.scrollWidth - window.innerWidth;
+    // Wait a tick for layout to settle before measuring
+    const timer = setTimeout(() => {
+      const panels = gsap.utils.toArray<HTMLElement>(".h-panel", slider);
+      if (panels.length === 0) return;
 
-      gsap.to(slider, {
-        x: () => -getScrollAmount(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: container,
-          start: "top top",
-          end: () => `+=${getScrollAmount()}`,
-          scrub: 1.2,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-    }, container);
+      const totalWidth = (panels.length - 1) * window.innerWidth;
 
-    return () => ctx.revert();
+      const ctx = gsap.context(() => {
+        gsap.to(slider, {
+          x: -totalWidth,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            end: () => `+=${totalWidth}`,
+            scrub: 1.2,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+      }, container);
+
+      return () => ctx.revert();
+    }, 50);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden w-full">
+    <div ref={containerRef} style={{ overflow: "hidden" }}>
       <div
         ref={sliderRef}
-        className="flex w-max flex-nowrap will-change-transform"
+        style={{ display: "flex", width: "fit-content", willChange: "transform" }}
       >
         {children}
       </div>
