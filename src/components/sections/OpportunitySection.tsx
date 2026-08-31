@@ -1,7 +1,6 @@
 "use client";
 
 import Reveal from "@/components/ui/Reveal";
-import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { OPPORTUNITY } from "@/lib/content";
 
 export default function OpportunitySection() {
@@ -39,59 +38,36 @@ export default function OpportunitySection() {
       {/* Main headline */}
       <Reveal>
         <h2 className="relative z-10 text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl">
-          THE{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">
-            ₹1,200 Cr
-          </span>
-          <br />
-          BRANDED ENTERTAINMENT
-          <br />
-          OPPORTUNITY
+          {OPPORTUNITY.headline}
         </h2>
+        <p className="relative z-10 text-lg md:text-xl text-amber-400/90 font-mono mt-4 font-light">
+          {OPPORTUNITY.subheadline}
+        </p>
       </Reveal>
 
-      {/* Market stats — large animated */}
-      <div className="relative z-10 mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {OPPORTUNITY.marketContext.map((item, i) => (
-          <Reveal key={i} delay={i * 0.1}>
-            <div className="group relative p-6 border border-neutral-800/80 rounded-2xl bg-neutral-950/60 backdrop-blur-xl hover:border-amber-500/40 transition-all duration-500 shadow-2xl overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/05 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-colors" />
-              <AnimatedCounter
-                value={item.stat}
-                className="text-3xl md:text-4xl font-bold tracking-tight block mb-2 text-white"
-              />
-              <p className="text-sm text-neutral-300 leading-relaxed font-light">
-                {item.label}
-              </p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      {/* The problems */}
-      <div className="relative z-10 mt-16">
+      {/* The 5 Narrative Problems */}
+      <div className="relative z-10 mt-14">
         <Reveal>
           <div className="flex items-center gap-3 mb-3">
-            <span className="w-2 h-2 rounded-full bg-red-500/80 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
-              The Problem
+              The Market Friction
             </h3>
           </div>
-          <p className="text-neutral-400 text-base max-w-2xl mb-8 font-light">
-            The traditional advertising model is breaking down. Audiences are
-            disengaged, and brands are struggling to connect.
+          <p className="text-neutral-400 text-sm md:text-base max-w-2xl mb-6 font-light">
+            Why traditional advertising model is breaking down and where the opportunity lies.
           </p>
         </Reveal>
 
         <div className="space-y-3">
-          {OPPORTUNITY.problems.map((problem, i) => (
+          {OPPORTUNITY.gapPoints.map((point, i) => (
             <Reveal key={i} delay={i * 0.06}>
-              <div className="flex items-start gap-4 p-5 border border-neutral-800/60 rounded-2xl bg-neutral-950/40 backdrop-blur-md group hover:border-neutral-700 hover:bg-neutral-900/40 transition-all duration-300">
-                <span className="text-amber-400/90 font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-amber-400/10 border border-amber-400/20 shrink-0 mt-0.5">
+              <div className="flex items-start gap-4 p-5 border border-neutral-800/60 rounded-2xl bg-neutral-950/40 backdrop-blur-md group hover:border-amber-400/30 hover:bg-neutral-900/40 transition-all duration-300">
+                <span className="text-amber-400 font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-amber-400/10 border border-amber-400/20 shrink-0 mt-0.5">
                   0{i + 1}
                 </span>
-                <p className="text-base text-neutral-300 group-hover:text-white transition-colors font-light">
-                  {problem}
+                <p className="text-sm md:text-base text-neutral-300 group-hover:text-white transition-colors font-light leading-relaxed">
+                  {point}
                 </p>
               </div>
             </Reveal>
@@ -104,15 +80,39 @@ export default function OpportunitySection() {
         <Reveal>
           <div className="relative p-8 md:p-10 border border-amber-500/30 rounded-3xl bg-gradient-to-br from-neutral-950/90 via-neutral-900/60 to-amber-950/20 backdrop-blur-2xl shadow-[0_0_80px_-20px_rgba(245,158,11,0.15)] overflow-hidden">
             <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
-            <div className="flex items-center gap-3 mb-6">
+            
+            <div className="flex items-center gap-3 mb-4">
               <span className="text-[11px] uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold">
-                The Solution
+                THE SOLUTION
               </span>
-              <div className="w-8 h-px bg-amber-400/40" />
+              <div className="w-8 h-px bg-amber-400/50" />
             </div>
-            <p className="text-2xl md:text-3xl font-light leading-relaxed text-neutral-100 max-w-4xl">
+
+            <h3 className="text-2xl md:text-4xl font-bold tracking-tight text-white mb-4">
+              The Co-Development Model
+            </h3>
+
+            <p className="text-base md:text-xl text-neutral-200 leading-relaxed font-light mb-6">
               {OPPORTUNITY.solution}
             </p>
+
+            <div className="p-4 rounded-xl border border-amber-400/30 bg-black/50 text-amber-300 font-mono text-xs md:text-sm italic">
+              "{OPPORTUNITY.philosophyQuote}"
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-6">
+              {[
+                "Creator-first production",
+                "Brand involvement day 1",
+                "Platform-native thinking",
+                "End-to-end production",
+                "India digital ecosystem",
+              ].map((item, idx) => (
+                <div key={idx} className="p-3 rounded-lg bg-neutral-900/80 border border-neutral-800 text-[11px] font-mono text-neutral-300 text-center">
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </Reveal>
       </div>

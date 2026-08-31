@@ -1,141 +1,138 @@
 "use client";
 
 import Reveal from "@/components/ui/Reveal";
-import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { AMAZON_AFP } from "@/lib/content";
 
 export default function AmazonAFPSection() {
   return (
     <section
       id="amazon-afp"
-      className="relative py-32 md:py-48 px-6 md:px-16 lg:px-24"
+      className="relative py-16 md:py-24 px-6 md:px-16 lg:px-24 overflow-hidden bg-black"
     >
+      {/* ── Background Aesthetics ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/3 -left-24 w-[600px] h-[600px] bg-amber-500/08 rounded-full blur-[180px]" />
+        <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-orange-600/06 rounded-full blur-[160px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
+      </div>
+
+      {/* Large Backdrop Watermark */}
+      <span
+        className="absolute top-10 right-10 text-[25vw] font-black text-white/[0.02] leading-none select-none pointer-events-none"
+        aria-hidden
+      >
+        06
+      </span>
+
       {/* Section label */}
       <Reveal>
-        <div className="flex items-center gap-4 mb-16">
-          <span className="text-neutral-600 text-sm font-light">06</span>
-          <div className="w-12 h-px bg-neutral-700" />
-          <span className="text-[11px] uppercase tracking-[0.3em] text-neutral-500">
-            Amazon AFP
+        <div className="relative z-10 flex items-center gap-4 mb-8">
+          <span className="text-amber-400 font-mono text-sm font-semibold">06</span>
+          <div className="w-12 h-px bg-gradient-to-r from-amber-400/50 to-neutral-700" />
+          <span className="text-[11px] uppercase tracking-[0.35em] text-neutral-400 font-medium">
+            Amazon AFP Partnership
           </span>
         </div>
       </Reveal>
 
       {/* Headline */}
       <Reveal>
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl">
-          ADVERTISER
+        <h2 className="relative z-10 text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl mb-4">
+          ADVERTISER FUNDED
           <br />
-          FUNDED
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">
-            PROGRAMMING
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">
+            PROGRAMMING (AFP)
           </span>
         </h2>
-      </Reveal>
-
-      <Reveal delay={0.1}>
-        <p className="mt-8 text-xl md:text-2xl text-neutral-400 font-light max-w-3xl leading-relaxed">
-          {AMAZON_AFP.subheadline}
-        </p>
-      </Reveal>
-
-      <Reveal delay={0.2}>
-        <p className="mt-6 text-base text-neutral-500 max-w-3xl leading-relaxed">
+        <p className="relative z-10 text-lg md:text-xl text-neutral-300 max-w-3xl mb-12 font-light">
           {AMAZON_AFP.description}
         </p>
       </Reveal>
 
-      {/* AFP Stats */}
-      <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6">
-        {AMAZON_AFP.stats.map((stat, i) => (
-          <Reveal key={i} delay={i * 0.1}>
-            <div className="p-6 md:p-8 rounded-2xl border border-neutral-800/50 bg-gradient-to-br from-neutral-900/50 to-black text-center hover:border-orange-900/30 transition-colors duration-500">
-              <AnimatedCounter
-                value={stat.value}
-                className="text-3xl md:text-4xl font-bold tracking-tight block mb-2"
-              />
-              <p className="text-xs md:text-sm text-neutral-500 leading-relaxed">
-                {stat.label}
-              </p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      {/* AFP Ecosystem - Win-Win-Win */}
-      <div className="mt-32">
+      {/* ── Win-Win-Win 4 Stakeholder Framework ── */}
+      <div className="relative z-10 mb-16">
         <Reveal>
-          <h3 className="text-2xl md:text-4xl font-bold tracking-tight mb-4">
-            The Win-Win-Win Ecosystem
-          </h3>
-          <p className="text-neutral-500 text-lg max-w-2xl mb-12">
-            The AFP model creates a virtuous cycle where every stakeholder
-            benefits.
-          </p>
-        </Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {Object.entries(AMAZON_AFP.ecosystem).map(([role, description], i) => (
-            <Reveal key={role} delay={i * 0.1}>
-              <div className="group p-8 rounded-2xl border border-neutral-800/50 bg-neutral-900/20 hover:bg-neutral-900/50 hover:border-neutral-600/50 transition-all duration-500">
-                <h4 className="text-[11px] uppercase tracking-[0.3em] text-orange-400/70 mb-4">
-                  {role}
-                </h4>
-                <p className="text-lg text-neutral-300 leading-relaxed group-hover:text-white transition-colors">
-                  {description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-
-      {/* Benefits */}
-      <div className="mt-24">
-        <Reveal>
-          <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-12">
-            Key Benefits
+          <h3 className="text-xs uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold mb-6">
+            THE WIN-WIN-WIN ECOSYSTEM
           </h3>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {AMAZON_AFP.benefits.map((benefit, i) => (
-            <Reveal key={i} delay={i * 0.08}>
-              <div className="flex gap-5 p-6 rounded-xl border border-neutral-800/30 hover:border-neutral-700/50 transition-colors">
-                <div className="w-10 h-10 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0 mt-1">
-                  <span className="text-orange-400 text-sm font-bold">
-                    {i + 1}
-                  </span>
-                </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            {
+              role: "BRAND",
+              color: "text-amber-400",
+              border: "border-amber-500/30",
+              bg: "bg-amber-950/20",
+              desc: AMAZON_AFP.ecosystem.brand,
+            },
+            {
+              role: "PLATFORM",
+              color: "text-orange-400",
+              border: "border-orange-500/30",
+              bg: "bg-orange-950/20",
+              desc: AMAZON_AFP.ecosystem.platform,
+            },
+            {
+              role: "AUDIENCE",
+              color: "text-indigo-400",
+              border: "border-indigo-500/30",
+              bg: "bg-indigo-950/20",
+              desc: AMAZON_AFP.ecosystem.audience,
+            },
+            {
+              role: "PRODUCER",
+              color: "text-emerald-400",
+              border: "border-emerald-500/30",
+              bg: "bg-emerald-950/20",
+              desc: AMAZON_AFP.ecosystem.producer,
+            },
+          ].map((item, idx) => (
+            <Reveal key={idx} delay={idx * 0.08}>
+              <div
+                className={`p-6 rounded-2xl border ${item.border} ${item.bg} backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] shadow-xl flex flex-col justify-between h-full`}
+              >
                 <div>
-                  <h4 className="font-semibold text-white mb-2">
-                    {benefit.title}
-                  </h4>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    {benefit.description}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`font-mono text-xs font-bold tracking-widest ${item.color}`}>
+                      0{idx + 1} • {item.role}
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-white/40" />
+                  </div>
+                  <p className="text-xs md:text-sm text-neutral-200 leading-relaxed font-light">
+                    {item.desc}
                   </p>
                 </div>
+                <div className="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-neutral-400 uppercase">
+                  STAKEHOLDER BENEFIT
+                </div>
               </div>
             </Reveal>
           ))}
         </div>
       </div>
 
-      {/* Content Examples */}
-      <div className="mt-24">
+      {/* ── Why Salt Media for AFP ── */}
+      <div className="relative z-10 p-8 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-neutral-950/90 via-neutral-900/60 to-amber-950/20 backdrop-blur-2xl">
         <Reveal>
-          <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-8">
-            AFP Content Formats
+          <span className="text-xs uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold block mb-2">
+            WHY SALT MEDIA FOR AFP
+          </span>
+          <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight mb-8">
+            Built Specifically for Platform-Native Brand Programming
           </h3>
         </Reveal>
-        <div className="flex flex-wrap gap-3">
-          {AMAZON_AFP.contentExamples.map((example, i) => (
-            <Reveal key={i} delay={i * 0.06}>
-              <span className="px-5 py-3 rounded-full border border-neutral-700/50 text-sm text-neutral-300 hover:border-orange-800/40 hover:text-orange-300/80 transition-all duration-300 cursor-default">
-                {example}
-              </span>
-            </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {AMAZON_AFP.whySaltMedia.map((reason, idx) => (
+            <div
+              key={idx}
+              className="p-4 rounded-xl border border-neutral-800 bg-black/60 hover:border-amber-400/40 transition-all duration-300"
+            >
+              <span className="text-amber-400 font-mono text-xs font-bold block mb-2">0{idx + 1}</span>
+              <h4 className="text-sm font-bold text-white mb-2">{reason.title}</h4>
+              <p className="text-xs text-neutral-300 font-light leading-relaxed">{reason.desc}</p>
+            </div>
           ))}
         </div>
       </div>

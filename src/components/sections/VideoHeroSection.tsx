@@ -258,17 +258,21 @@ export default function VideoHeroSection() {
             pointerEvents: "none",
           }}
         >
-          <p
-            style={{
-              fontSize: "11px",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.4)",
-              marginBottom: "1rem",
-            }}
-          >
-            Creator-Led Production Studio
-          </p>
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            <p
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                color: "#f59e0b",
+                fontWeight: 600,
+                fontFamily: "monospace",
+              }}
+            >
+              CREATOR-LED PRODUCTION STUDIO • BRANDED CONTENT & AFP
+            </p>
+          </div>
 
           <h1
             style={{
@@ -283,7 +287,7 @@ export default function VideoHeroSection() {
             <br />
             <span
               style={{
-                backgroundImage: "linear-gradient(90deg, #ffffff, #555555)",
+                backgroundImage: "linear-gradient(90deg, #ffffff, #f59e0b, #888888)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -295,20 +299,24 @@ export default function VideoHeroSection() {
 
           <p
             style={{
-              marginTop: "1.75rem",
-              fontSize: "clamp(1rem, 2vw, 1.375rem)",
+              marginTop: "1.5rem",
+              fontSize: "clamp(1rem, 1.8vw, 1.25rem)",
               fontWeight: 300,
-              color: "rgba(255,255,255,0.6)",
-              maxWidth: "38ch",
+              color: "rgba(255,255,255,0.8)",
+              maxWidth: "46ch",
               lineHeight: 1.6,
             }}
           >
             {COMPANY.positioning}
           </p>
 
+          <p className="mt-3 text-xs md:text-sm text-neutral-400 font-mono tracking-wide">
+            {COMPANY.secondaryPositioning}
+          </p>
+
           <div
             style={{
-              marginTop: "2.5rem",
+              marginTop: "2.25rem",
               display: "flex",
               gap: "1rem",
               pointerEvents: "auto",
@@ -317,34 +325,40 @@ export default function VideoHeroSection() {
             <a
               href="#about"
               style={{
-                padding: "1rem 2rem",
+                padding: "0.875rem 2rem",
                 background: "#fff",
                 color: "#000",
-                fontWeight: 500,
+                fontWeight: 600,
                 fontSize: "0.75rem",
-                letterSpacing: "0.12em",
+                letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 borderRadius: "9999px",
                 textDecoration: "none",
+                transition: "all 0.3s ease",
               }}
+              className="hover:scale-105 hover:bg-amber-400 hover:text-black shadow-lg"
             >
-              Explore
+              EXPLORE
             </a>
             <a
               href="#contact"
               style={{
-                padding: "1rem 2rem",
-                border: "1px solid rgba(255,255,255,0.2)",
-                color: "rgba(255,255,255,0.7)",
+                padding: "0.875rem 2rem",
+                border: "1px solid rgba(245,158,11,0.4)",
+                color: "#fff",
                 fontWeight: 500,
                 fontSize: "0.75rem",
-                letterSpacing: "0.12em",
+                letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 borderRadius: "9999px",
                 textDecoration: "none",
+                background: "rgba(0,0,0,0.4)",
+                backdropFilter: "blur(8px)",
+                transition: "all 0.3s ease",
               }}
+              className="hover:scale-105 hover:border-amber-400 hover:bg-amber-400/10"
             >
-              Get in Touch
+              GET IN TOUCH
             </a>
           </div>
         </div>

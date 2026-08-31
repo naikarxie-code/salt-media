@@ -2,151 +2,157 @@
 
 import { useState } from "react";
 import Reveal from "@/components/ui/Reveal";
-import { STRATEGY } from "@/lib/content";
+import { STRATEGY, SOCIAL_INTELLIGENCE } from "@/lib/content";
 
 export default function StrategySection() {
-  const [activePhase, setActivePhase] = useState(0);
+  const [activePhase, setActivePhase] = useState<number>(0);
+
+  const model = STRATEGY.codevelopmentModel;
+  const currentPhase = model.phases[activePhase];
 
   return (
     <section
       id="strategy"
-      className="relative py-32 md:py-48 px-6 md:px-16 lg:px-24"
+      className="relative py-16 md:py-24 px-6 md:px-16 lg:px-24 overflow-hidden bg-black"
     >
+      {/* ── Background Aesthetics ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] bg-amber-500/05 rounded-full blur-[180px]" />
+        <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-indigo-500/05 rounded-full blur-[160px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
+      </div>
+
+      {/* Large Backdrop Watermark */}
+      <span
+        className="absolute top-10 left-10 text-[25vw] font-black text-white/[0.02] leading-none select-none pointer-events-none"
+        aria-hidden
+      >
+        07
+      </span>
+
       {/* Section label */}
       <Reveal>
-        <div className="flex items-center gap-4 mb-16">
-          <span className="text-neutral-600 text-sm font-light">07</span>
-          <div className="w-12 h-px bg-neutral-700" />
-          <span className="text-[11px] uppercase tracking-[0.3em] text-neutral-500">
-            Strategy
+        <div className="relative z-10 flex items-center gap-4 mb-8">
+          <span className="text-amber-400 font-mono text-sm font-semibold">07</span>
+          <div className="w-12 h-px bg-gradient-to-r from-amber-400/50 to-neutral-700" />
+          <span className="text-[11px] uppercase tracking-[0.35em] text-neutral-400 font-medium">
+            Strategy & Execution
           </span>
         </div>
       </Reveal>
 
-      {/* Co-Development Model */}
+      {/* Main Headline */}
       <Reveal>
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl">
+        <h2 className="relative z-10 text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl mb-4">
           THE CO-DEVELOPMENT
           <br />
-          <span className="text-neutral-500">MODEL</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">
+            MODEL
+          </span>
         </h2>
-      </Reveal>
-
-      <Reveal delay={0.1}>
-        <p className="mt-8 text-lg text-neutral-400 max-w-3xl leading-relaxed">
-          {STRATEGY.codevelopmentModel.description}
+        <p className="relative z-10 text-base md:text-xl text-neutral-300 max-w-3xl mb-8 font-light">
+          {model.description}
         </p>
       </Reveal>
 
-      {/* Interactive Phase Timeline */}
-      <div className="mt-20">
-        {/* Phase selector */}
-        <Reveal>
-          <div className="flex flex-wrap gap-2 mb-12">
-            {STRATEGY.codevelopmentModel.phases.map((phase, i) => (
-              <button
-                key={i}
-                onClick={() => setActivePhase(i)}
-                className={`flex items-center gap-3 px-6 py-3 rounded-full text-sm transition-all duration-500 ${
-                  activePhase === i
-                    ? "bg-white text-black"
-                    : "border border-neutral-700 text-neutral-400 hover:border-neutral-500"
-                }`}
-              >
-                <span className="font-bold">{phase.phase}</span>
-                <span>{phase.title}</span>
-              </button>
-            ))}
-          </div>
-        </Reveal>
-
-        {/* Active phase content */}
-        <Reveal>
-          <div className="p-8 md:p-12 rounded-2xl border border-neutral-800/50 bg-neutral-900/20">
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-5xl font-bold text-neutral-800">
-                {STRATEGY.codevelopmentModel.phases[activePhase].phase}
-              </span>
-              <div>
-                <h3 className="text-2xl font-bold tracking-tight">
-                  {STRATEGY.codevelopmentModel.phases[activePhase].title}
-                </h3>
-              </div>
-            </div>
-            <p className="text-lg text-neutral-400 mb-8 leading-relaxed max-w-3xl">
-              {STRATEGY.codevelopmentModel.phases[activePhase].description}
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {STRATEGY.codevelopmentModel.phases[activePhase].activities.map(
-                (activity, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-3 py-3 px-4 rounded-lg bg-neutral-800/20 border border-neutral-800/30"
-                  >
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/40 shrink-0" />
-                    <span className="text-sm text-neutral-300">{activity}</span>
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-        </Reveal>
-      </div>
-
-      {/* Content Strategy Pillars */}
-      <div className="mt-32">
-        <Reveal>
-          <h3 className="text-2xl md:text-4xl font-bold tracking-tight mb-4">
-            {STRATEGY.contentStrategy.title}
-          </h3>
-          <p className="text-neutral-500 text-lg max-w-2xl mb-12">
-            Four pillars that guide every piece of content we create.
-          </p>
-        </Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {STRATEGY.contentStrategy.pillars.map((pillar, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <div className="p-6 rounded-2xl border border-neutral-800/50 bg-neutral-900/20 h-full hover:bg-neutral-900/50 hover:border-neutral-600/50 transition-all duration-500">
-                <span className="text-neutral-700 text-sm">0{i + 1}</span>
-                <h4 className="text-lg font-semibold mt-3 mb-3">
-                  {pillar.title}
-                </h4>
-                <p className="text-sm text-neutral-500 leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+      {/* Operating Logic Pipeline Banner */}
+      <div className="relative z-10 mb-12 p-4 rounded-2xl border border-amber-400/30 bg-neutral-950/80 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <span className="text-xs uppercase font-mono tracking-widest text-amber-400 font-semibold shrink-0">
+          OPERATING LOGIC
+        </span>
+        <div className="text-xs md:text-sm font-mono text-white text-center md:text-right font-medium">
+          {model.operatingLogic}
         </div>
       </div>
 
-      {/* Audience Strategy */}
-      <div className="mt-32">
+      {/* Interactive 4-Phase Strategy Tabs */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
+        {/* Phase selector column */}
+        <div className="lg:col-span-5 space-y-3">
+          {model.phases.map((phase, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActivePhase(idx)}
+              className={`w-full p-5 rounded-2xl border text-left transition-all duration-300 flex items-center justify-between ${
+                activePhase === idx
+                  ? "border-amber-400 bg-neutral-900 shadow-[0_0_20px_rgba(245,158,11,0.15)]"
+                  : "border-neutral-800/80 bg-neutral-950/60 hover:border-neutral-700"
+              }`}
+            >
+              <div className="flex items-center gap-4">
+                <span className={`font-mono text-xs font-bold px-2.5 py-1 rounded ${activePhase === idx ? "bg-amber-400 text-black" : "bg-neutral-800 text-amber-400"}`}>
+                  {phase.phase}
+                </span>
+                <span className="text-base font-bold text-white tracking-tight">
+                  {phase.title}
+                </span>
+              </div>
+              <span className="text-amber-400 font-mono text-sm">→</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Phase details column */}
+        <div className="lg:col-span-7 p-8 rounded-3xl border border-neutral-800 bg-neutral-950/80 backdrop-blur-2xl flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-amber-400 font-mono text-xs font-bold px-3 py-1 rounded bg-amber-400/10 border border-amber-400/20">
+                PHASE {currentPhase.phase}
+              </span>
+              <h3 className="text-2xl font-bold text-white tracking-tight">
+                {currentPhase.title}
+              </h3>
+            </div>
+
+            <p className="text-base text-neutral-200 leading-relaxed font-light mb-6">
+              {currentPhase.description}
+            </p>
+
+            <h4 className="text-xs uppercase font-mono tracking-widest text-amber-400 font-semibold mb-3">
+              KEY DELIVERABLES & ACTIVITIES
+            </h4>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {currentPhase.activities.map((act, i) => (
+                <div key={i} className="flex items-center gap-2 p-3 rounded-xl border border-neutral-800/60 bg-neutral-900/40">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                  <span className="text-xs md:text-sm text-neutral-300 font-light">{act}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 pt-4 border-t border-neutral-800 flex justify-between items-center text-xs font-mono text-neutral-500">
+            <span>SALT MEDIA PRODUCTION PIPELINE</span>
+            <span>END-TO-END EXECUTION</span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── SUBSECTION: SOCIAL & TREND INTELLIGENCE ── */}
+      <div className="relative z-10 p-8 md:p-10 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-neutral-950/90 via-neutral-900/60 to-amber-950/20 backdrop-blur-2xl">
         <Reveal>
-          <h3 className="text-2xl md:text-4xl font-bold tracking-tight mb-12">
-            {STRATEGY.audienceStrategy.title}
+          <span className="text-xs uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold block mb-2">
+            SOCIAL INTELLIGENCE & RETENTION
+          </span>
+          <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight mb-3">
+            {SOCIAL_INTELLIGENCE.headline}
           </h3>
+          <p className="text-sm md:text-base text-neutral-300 font-light max-w-3xl mb-8">
+            {SOCIAL_INTELLIGENCE.description}
+          </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {STRATEGY.audienceStrategy.segments.map((segment, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <div className="p-8 rounded-2xl border border-neutral-800/50 bg-neutral-900/20 hover:bg-neutral-900/40 transition-all duration-500">
-                <h4 className="text-xl font-bold mb-1">{segment.name}</h4>
-                <p className="text-sm text-neutral-500 mb-4">
-                  {segment.description}
-                </p>
-                <div className="border-t border-neutral-800/50 pt-4">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600">
-                    Key Platforms
-                  </span>
-                  <p className="text-sm text-neutral-400 mt-1">
-                    {segment.platforms}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {SOCIAL_INTELLIGENCE.pillars.map((p, idx) => (
+            <div
+              key={idx}
+              className="p-5 rounded-2xl border border-neutral-800 bg-black/60 hover:border-amber-400/40 transition-all duration-300"
+            >
+              <span className="text-amber-400 font-mono text-xs font-bold block mb-2">{p.num}</span>
+              <h4 className="text-base font-bold text-white mb-2">{p.title}</h4>
+              <p className="text-xs text-neutral-300 font-light leading-relaxed">{p.description}</p>
+            </div>
           ))}
         </div>
       </div>

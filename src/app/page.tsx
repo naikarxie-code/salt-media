@@ -6,30 +6,12 @@ import VideoHeroSection from "@/components/sections/VideoHeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import OpportunitySection from "@/components/sections/OpportunitySection";
 import EcosystemSection from "@/components/sections/EcosystemSection";
-import HorizontalScroll from "@/components/ui/HorizontalScroll";
-import {
-  ContentPanel,
-  AmazonAFPPanel,
-  StrategyPanel,
-  ImpactPanel,
-  ContactPanel,
-} from "@/components/sections/HorizontalPanels";
-
-// Horizontal transition indicator
-function HorizontalTransitionMarker() {
-  return (
-    <div className="relative flex items-center justify-center py-8 overflow-hidden">
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent" />
-      <div className="absolute flex items-center gap-3 bg-black px-6">
-        <div className="w-2 h-2 rounded-full border border-neutral-600" />
-        <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600">
-          Swipe Right
-        </span>
-        <div className="w-2 h-2 rounded-full border border-neutral-600" />
-      </div>
-    </div>
-  );
-}
+import ContentSection from "@/components/sections/ContentSection";
+import AmazonAFPSection from "@/components/sections/AmazonAFPSection";
+import StrategySection from "@/components/sections/StrategySection";
+import StarterTerritoriesSection from "@/components/sections/StarterTerritoriesSection";
+import ImpactSection from "@/components/sections/ImpactSection";
+import ContactSection from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
@@ -37,26 +19,36 @@ export default function Home() {
       <AmbientParticles />
       <Navigation />
 
-      <main id="main-scroll-container" className="relative w-full">
-
-        {/* ── VERTICAL HALF ─────────────────────────────────────────── */}
+      <main id="main-scroll-container" className="relative w-full bg-black">
+        {/* 01 HOME / HERO */}
         <VideoHeroSection />
+
+        {/* 02 ABOUT */}
         <AboutSection />
+
+        {/* 03 OPPORTUNITY */}
         <OpportunitySection />
+
+        {/* 04 ECOSYSTEM */}
         <EcosystemSection />
 
-        {/* ── PIVOT MARKER ──────────────────────────────────────────── */}
-        <HorizontalTransitionMarker />
+        {/* 05 CONTENT UNIVERSE */}
+        <ContentSection />
 
-        {/* ── HORIZONTAL HALF ───────────────────────────────────────── */}
-        <HorizontalScroll>
-          <ContentPanel />
-          <AmazonAFPPanel />
-          <StrategyPanel />
-          <ImpactPanel />
-          <ContactPanel />
-        </HorizontalScroll>
+        {/* 06 AMAZON AFP */}
+        <AmazonAFPSection />
 
+        {/* 07 STRATEGY & SOCIAL INTELLIGENCE */}
+        <StrategySection />
+
+        {/* 08 STARTER TERRITORIES & OUTPUT STACK */}
+        <StarterTerritoriesSection />
+
+        {/* 09 VERIFIED CREDENTIALS */}
+        <ImpactSection />
+
+        {/* 10 CONTACT & THE FIRST MOVE */}
+        <ContactSection />
       </main>
     </>
   );

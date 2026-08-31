@@ -1,12 +1,14 @@
 // ============================================================================
-// SALT MEDIA — Complete Content Data (from Canva Presentation)
-// Source of truth: https://www.canva.com/design/DAHTqztnxvA/
+// SALT MEDIA — Verified Canva Presentation Content Data
+// Source of truth: Canva Presentation Deck (https://www.canva.com/design/DAHTqztnxvA/)
 // ============================================================================
 
 export const COMPANY = {
   name: "Salt Media",
-  tagline: "Creator-Led Production Studio",
-  positioning: "Bridging the gap between advertising speed and entertainment depth.",
+  tagline: "CREATOR-LED PRODUCTION STUDIO",
+  subtagline: "BRANDED CONTENT & ADVERTISER-FUNDED PROGRAMMING",
+  positioning: "A creator-led production studio building IPs, formats and stories for brands across branded entertainment, documentaries, ad films and long-format web series.",
+  secondaryPositioning: "Bridging the gap between advertising speed and entertainment depth.",
   description:
     "Salt Media is a creator-led production studio that combines the agility of advertising with the narrative depth of entertainment. We create branded content, original IPs, and platform-first programming that resonates with digital-native audiences across India.",
   vision:
@@ -14,26 +16,45 @@ export const COMPANY = {
   mission:
     "To bridge the gap between advertising speed and entertainment depth — creating content that brands want to fund, platforms want to air, and audiences want to watch.",
   philosophy:
-    "We believe that the future of media lies at the intersection of brand storytelling, creator authenticity, and platform-first distribution. Salt Media operates in this intersection — co-developing content with brands and creators that entertains audiences while delivering measurable brand value.",
+    "We make brands part of the story — without making the story feel like an ad.",
+  corePillars: [
+    "Entertainment first.",
+    "Brand naturally woven in.",
+    "Multi-format output.",
+    "Scalable budgets.",
+  ],
   differentiators: [
     "Creator-first approach with entertainment-grade production",
     "Co-development model with brands embedded from day one",
     "Platform-native content designed for digital distribution",
-    "End-to-end from strategy through production to distribution",
+    "End-to-end execution: Concept → Writing → Production → Post → Delivery",
     "Deep understanding of India's digital content ecosystem",
   ],
 };
 
-export const STATS = {
-  yearsOfCraft: "11+",
-  brandCollaborations: "100+",
-  crewCapacity: "150+",
-  showsProduced: "50+",
-  platformsReached: "10+",
-  viewsGenerated: "500M+",
-  originalIPs: "15+",
-  creatorsNetwork: "200+",
-};
+// Verified Canva Credentials — NO unverified market claims
+export const STATS = [
+  {
+    value: "11+",
+    label: "Years of Craft",
+    subtext: "Deep production expertise across fiction, factual, and ad films",
+  },
+  {
+    value: "100+",
+    label: "Brand Collaborations",
+    subtext: "Trusted by automotive, tech, FMCG & government partners",
+  },
+  {
+    value: "150+",
+    label: "Crew Scale-Up Capacity",
+    subtext: "Seamless end-to-end production infrastructure across India",
+  },
+  {
+    value: "END-TO-END",
+    label: "Production Stack",
+    subtext: "Concept → Writing → Production → Post → Delivery",
+  },
+];
 
 export const NARRATIVE_FORMATS = [
   {
@@ -75,24 +96,39 @@ export const NARRATIVE_FORMATS = [
 
 export const ECOSYSTEM_PARTNERS = {
   platforms: [
-    { name: "Amazon MX Player", tier: "primary" },
-    { name: "JioHotstar", tier: "primary" },
-    { name: "JioCinema / Viacom18", tier: "primary" },
-    { name: "Zee TV / Zee5", tier: "secondary" },
-    { name: "History TV18", tier: "secondary" },
-    { name: "Warner Bros. Discovery", tier: "secondary" },
-    { name: "YouTube", tier: "secondary" },
-    { name: "Instagram / Meta", tier: "tertiary" },
+    { name: "Amazon MX Player", category: "OTT / Free Streaming" },
+    { name: "JioHotstar / Hotstar", category: "OTT Streaming" },
+    { name: "JioCinema / Viacom18", category: "Broadcaster & OTT" },
+    { name: "Zee TV / Zee5", category: "Broadcaster & OTT" },
+    { name: "History TV18", category: "Linear & Factual" },
+    { name: "Warner Bros. Discovery / Discovery", category: "Factual & Global" },
+    { name: "TLC", category: "Lifestyle & Factual" },
+  ],
+  approvedBrands: [
+    { name: "Maruti Suzuki", category: "Automotive" },
+    { name: "Jeep", category: "Automotive" },
+    { name: "Brezza", category: "Automotive" },
+    { name: "Naukri.com", category: "Consumer / Digital" },
+    { name: "Myntra", category: "Fashion & Lifestyle" },
+    { name: "Vivo", category: "Technology & Electronics" },
+    { name: "OPPO", category: "Technology & Electronics" },
+    { name: "Tecno", category: "Technology & Electronics" },
+    { name: "Peter England", category: "Fashion & Lifestyle" },
+    { name: "NECC", category: "Institutional / FMCG" },
+    { name: "BlueStone", category: "Consumer / Lifestyle" },
+    { name: "UTI Mutual Fund", category: "Financial Services" },
+    { name: "LTIMindtree", category: "Corporate / Tech" },
+    { name: "Kohler", category: "Corporate / Lifestyle" },
+    { name: "Odisha Government", category: "Institutional / Government" },
+    { name: "Uttar Pradesh Government", category: "Institutional / Government" },
+    { name: "Madhya Pradesh Government", category: "Institutional / Government" },
+    { name: "Oil India", category: "Corporate / Energy" },
   ],
   brandCategories: [
-    "FMCG & Consumer Goods",
     "Automotive",
-    "Technology & Electronics",
-    "Fashion & Lifestyle",
-    "Food & Beverage",
-    "Financial Services",
-    "E-commerce",
-    "Telecom",
+    "Consumer / Digital",
+    "Corporate & Tech",
+    "Institutional & Government",
   ],
   creatorNetwork: [
     "Actors & Performers",
@@ -105,89 +141,280 @@ export const ECOSYSTEM_PARTNERS = {
 };
 
 export const OPPORTUNITY = {
-  headline: "The ₹1,200 Cr Branded Entertainment Opportunity",
-  marketContext: [
-    {
-      stat: "₹1,200 Cr",
-      label: "Branded entertainment market in India (projected)",
-    },
-    {
-      stat: "45%",
-      label: "Year-on-year growth in digital content consumption",
-    },
-    {
-      stat: "350M+",
-      label: "OTT subscribers across Indian platforms",
-    },
-    {
-      stat: "70%",
-      label: "Of Gen Z and Millennials prefer content over traditional ads",
-    },
-  ],
-  problems: [
-    "Audiences are skipping ads — ad fatigue is at an all-time high",
-    "Brands struggle to create content that feels authentic and not interruptive",
-    "Platforms need brand-funded content to reduce acquisition costs",
-    "Creators lack production infrastructure to scale their storytelling",
-    "The gap between advertising and entertainment remains wide",
+  headline: "THE NEXT BIG BRANDED ENTERTAINMENT OPPORTUNITY",
+  subheadline: "Reconnecting brands with audiences who skip ads.",
+  gapPoints: [
+    "Audiences actively skip traditional interruptive ads — ad fatigue is at an all-time high.",
+    "Brands struggle to create content that feels authentic, engaging, and non-intrusive.",
+    "Platforms require brand-funded content to reduce acquisition costs and scale original libraries.",
+    "Creators need robust production infrastructure to scale their storytelling capabilities.",
+    "The gap between traditional advertising speed and entertainment depth remains wide open.",
   ],
   solution:
     "Salt Media bridges this gap through the Co-Development Model — embedding brands into entertainment from the concept stage, creating content that audiences actually want to watch.",
+  philosophyQuote: "The brand should feel like a force inside the story, not a logo pasted on the wall.",
+};
+
+// Verified Canva Selected Works & IPs
+export const SELECTED_WORKS = [
+  {
+    id: "first-copy",
+    title: "FIRST COPY",
+    category: "Scripted",
+    format: "Web Series / Fiction",
+    description: "Nostalgic 1990s thriller drama set in the pirated VHS era of Indian cinema.",
+    tag: "Scripted IP",
+  },
+  {
+    id: "the-holiday",
+    title: "THE HOLIDAY",
+    category: "Scripted",
+    format: "Fiction Series",
+    description: "High-energy bachelorette friendship adventure series filmed across scenic international locales.",
+    tag: "Scripted IP",
+  },
+  {
+    id: "happily-ever-after",
+    title: "HAPPILY EVER AFTER",
+    category: "Scripted",
+    format: "Rom-Com Series",
+    description: "Contemporary relationship comedy-drama exploring modern millennial wedding chaos.",
+    tag: "Scripted IP",
+  },
+  {
+    id: "9-to-5-trending",
+    title: "9 TO 5 TRENDING NOW",
+    category: "Scripted",
+    format: "Workplace Comedy",
+    description: "Witty digital agency workplace comedy capturing social media culture and corporate life.",
+    tag: "Scripted IP",
+  },
+  {
+    id: "amma",
+    title: "AMMA",
+    category: "Scripted",
+    format: "Drama Series",
+    description: "Emotional period narrative depicting resilience, legacy, and matriarchal power.",
+    tag: "Scripted IP",
+  },
+];
+
+// Verified Micro-Drama / Short-Form IP
+export const MICRO_DRAMAS = [
+  { title: "Omi the GOAT", category: "Comedy", platform: "Vertical Mobile" },
+  { title: "Hustle Queen Kajal", category: "Drama", platform: "Vertical Mobile" },
+  { title: "Cringe King Pratya", category: "Satire", platform: "Vertical Mobile" },
+  { title: "Notice Period", category: "Workplace", platform: "Vertical Mobile" },
+  { title: "Narbhakshi", category: "Thriller", platform: "Vertical Mobile" },
+  { title: "Dhokebaaz Judwaa", category: "Mystery", platform: "Vertical Mobile" },
+  { title: "Rooh ki Pukaar", category: "Horror", platform: "Vertical Mobile" },
+  { title: "CEO vs CEO", category: "Corporate", platform: "Vertical Mobile" },
+];
+
+// Verified Factual & Documentary Works
+export const FACTUAL_DOCUMENTARIES = [
+  {
+    title: "OMG! Yeh Mera India",
+    subline: "Television & Factual",
+    description: "Long-running flagship infotainment franchise celebrating India's most extraordinary talent and stories.",
+    badge: "Television / Factual",
+  },
+  {
+    title: "The Great Indian Universities",
+    subline: "Television & Factual",
+    description: "In-depth docu-series exploring prestigious educational institutions and academic legacies across India.",
+    badge: "Television / Factual",
+  },
+  {
+    title: "Heritage Trails (S1 & S2)",
+    subline: "Cultural Travelogue",
+    description: "Cinematic exploration of India's ancient architectural, spiritual, and historical heritage.",
+    badge: "Television / Factual",
+  },
+  {
+    title: "Kashi Vishwanath Corridor",
+    subline: "Special Documentary",
+    description: "Monumental documentary capturing the transformation and cultural soul of Varanasi.",
+    badge: "Special Doc",
+  },
+  {
+    title: "Listen to the Sea",
+    subline: "Impact & Festival Doc",
+    description: "Award-winning documentary examining coastal ecosystems, maritime lives, and human resilience.",
+    badge: "Impact Doc",
+  },
+  {
+    title: "Inside the Burning",
+    subline: "Environmental Doc",
+    description: "Raw, frontline documentary probing extreme environmental conditions and human survival.",
+    badge: "Festival Doc",
+  },
+  {
+    title: "The Soul That Survived",
+    subline: "Human Interest Doc",
+    description: "Intimate biographical portrait of courage, survival, and triumph over adversity.",
+    badge: "Impact Doc",
+  },
+  {
+    title: "Avaada Super Factory",
+    subline: "Institutional Film",
+    description: "Industrial docu-film showcasing green energy transition and large-scale manufacturing excellence.",
+    badge: "Institutional Film",
+  },
+  {
+    title: "KIIT Documentary",
+    subline: "Institutional Film",
+    description: "Empowering documentary highlighting educational transformation and social empowerment.",
+    badge: "Institutional Film",
+  },
+];
+
+// Verified Awards & Festival Recognitions
+export const AWARDS = [
+  {
+    title: "Best Documentary Short",
+    event: "International Film Festival Selection",
+    note: "Recognized for excellence in non-fiction storytelling & direction",
+  },
+  {
+    title: "Best Short Director",
+    event: "Festival Recognition",
+    note: "Honored for narrative craft and visual direction",
+  },
+  {
+    title: "Impact DOCS Award of Excellence",
+    event: "Global Documentary Awards",
+    note: "Awarded for high-impact social and environmental documentary craft",
+  },
+  {
+    title: "International Festival Selections",
+    event: "Global Screenings",
+    note: "Officially selected across prestigious global documentary showcases",
+  },
+];
+
+export const SOCIAL_INTELLIGENCE = {
+  headline: "WE DON'T JUST PRODUCE CONTENT. WE UNDERSTAND WHAT MAKES PEOPLE STOP.",
+  description: "Born from digital-native roots, Salt Media combines production craft with real-time social intelligence to engineer content that commands attention in crowded feeds.",
+  pillars: [
+    {
+      num: "01",
+      title: "TREND SPOTTING",
+      description: "Emerging formats, cultural moments, and audience moods identified before saturation.",
+    },
+    {
+      num: "02",
+      title: "HOOK DESIGN",
+      description: "Titles, premises, and opening episode hooks specifically designed for audience retention.",
+    },
+    {
+      num: "03",
+      title: "PLATFORM-NATIVE PACKAGING",
+      description: "Hero assets, cutdowns, reels, promos, and shareable moments engineered for native algorithms.",
+    },
+    {
+      num: "04",
+      title: "MAXIMUM VIEWS MINDSET",
+      description: "Brand-safe stories built to travel further organically across digital and social ecosystems.",
+    },
+  ],
 };
 
 export const AMAZON_AFP = {
-  headline: "Amazon Advertiser Funded Programming",
-  subheadline: "The future of brand storytelling on India's largest free streaming platform",
+  headline: "ADVERTISER FUNDED PROGRAMMING",
+  subheadline: "The Amazon MX Player AFP Ecosystem",
   description:
-    "Amazon MX Player's AFP model allows brands to fund original programming, creating a win-win-win ecosystem for brands, platforms, and audiences. Salt Media is positioned as a key production partner in this ecosystem.",
+    "Amazon MX Player's AFP model allows brands to fund original programming, creating a win-win-win ecosystem for brands, platforms, and audiences. Salt Media operates as an agile, entertainment-grade production partner in this model.",
   ecosystem: {
-    brand: "Funds content + gets deep narrative integration",
-    platform: "Gets premium content at reduced cost + monetizes through brand partnerships",
+    brand: "Funds content + gets deep narrative integration without ad-blocker dropoff",
+    platform: "Gets premium original content at reduced cost + monetizes through brand partnerships",
     audience: "Gets free, high-quality entertainment without interruptive advertising",
     producer: "Gets production funding + creative freedom + platform distribution",
   },
-  benefits: [
+  whySaltMedia: [
     {
-      title: "Deep Brand Integration",
-      description:
-        "Brands are woven into the narrative from day one — not retrofitted into existing content.",
+      title: "Creator-Led Agility",
+      desc: "Fresh, digital-native storytelling combined with high-grade broadcast production.",
     },
     {
-      title: "Premium Distribution",
-      description:
-        "Content distributed on Amazon MX Player to 150M+ monthly active users.",
+      title: "Entertainment-Grade Production",
+      desc: "150+ crew scale-up capacity ensuring cinematic visuals and broadcast compliance.",
     },
     {
-      title: "Content That Performs",
-      description:
-        "AFP content sees 3x higher engagement vs. traditional branded content.",
+      title: "Brand Co-Development",
+      desc: "Brands involved from script phase so integration feels natural, never forced.",
     },
     {
-      title: "Complete Transparency",
-      description:
-        "Real-time analytics and performance tracking across the content lifecycle.",
+      title: "Platform-Native Thinking",
+      desc: "Pacing, hooks, and narrative structures built specifically for digital OTT viewing.",
     },
-  ],
-  stats: [
-    { value: "150M+", label: "Monthly Active Users on Amazon MX Player" },
-    { value: "3x", label: "Higher engagement vs. traditional branded content" },
-    { value: "65%", label: "Completion rate on AFP shows" },
-    { value: "40%", label: "Lower cost per engaged viewer" },
-  ],
-  contentExamples: [
-    "Brand-funded original series",
-    "Reality and competition formats",
-    "Docu-series with brand narratives",
-    "Festival and event specials",
-    "Short-form branded micro-dramas",
+    {
+      title: "One Idea → Many Outputs",
+      desc: "Unlocking max ROI by deriving promos, reels, BTS, and cutdowns from one hero shoot.",
+    },
   ],
 };
+
+// Starter Territories for Amazon AFP Pitch ("WHAT WE CAN BUILD FIRST")
+export const STARTER_TERRITORIES = [
+  {
+    number: "01",
+    title: "MOBILITY + FESTIVE INDIA",
+    tagline: "Youth & Family Road-Trip / Lifestyle Drama",
+    concept: "Youth and family mini-series built around mobility, personal aspiration, and festive celebrations across India.",
+    audience: "Gen-Z & Millennial families in Tier 1 & Tier 2 cities",
+    format: "5-6 Episode Mini-Series (15-20 min / ep)",
+    brandOpportunity: "Natural integration for Automotive, Tech, and E-commerce brands during peak festive buying cycles.",
+    outputStack: ["Hero Series", "Travel Promos", "Behind-the-Scenes Vlogs", "Reel Cutdowns"],
+  },
+  {
+    number: "02",
+    title: "CAREER / PRODUCTIVITY / FINTECH",
+    tagline: "Workplace Comedy-Drama Format",
+    concept: "Relatable workplace comedy-drama exploring career hustles, ambition, corporate quirks, and financial milestones.",
+    audience: "Young working professionals (21-35 years)",
+    format: "6-8 Episode Comedy-Drama Series",
+    brandOpportunity: "In-built usage of fintech apps, productivity tools, modern apparel, and career platforms.",
+    outputStack: ["Hero Show", "Relatable Meme Reels", "Linked-In Creator Hooks", "Brand Cutdowns"],
+  },
+  {
+    number: "03",
+    title: "CHANGEMAKERS JOURNEY",
+    tagline: "Inspiring Docu-Entertainment Series",
+    concept: "Docu-entertainment journey profiling extraordinary entrepreneurs, innovators, and grassroot changemakers transforming India.",
+    audience: "Aspirational youth, business leaders & conscious consumers",
+    format: "Docu-Series / Feature Specials",
+    brandOpportunity: "High-credibility brand association with innovation, sustainability, and national progress.",
+    outputStack: ["Docu-Episodes", "Spotlight Shorts", "Thought Leadership Clips", "Festival Cuts"],
+  },
+  {
+    number: "04",
+    title: "VERTICAL-FIRST BRAND UNIVERSE",
+    tagline: "Micro-Drama / Short-Form IP World",
+    concept: "Snackable micro-drama universe for mobile-first audiences seeking high-frequency story hits.",
+    audience: "Mobile-first Gen Z & digital natives",
+    format: "15-30 Vertical Short Episodes (60-90 sec / ep)",
+    brandOpportunity: "High-frequency brand recall and viral social sharing across reels & short-form platforms.",
+    outputStack: ["Vertical Episodes", "Trending Audio Hooks", "Viral Clips", "User-Generated Challenges"],
+  },
+];
+
+// One Idea -> Many Content Outputs Stack
+export const OUTPUT_STACK = [
+  { level: "HERO SHOW", desc: "Advertiser-funded mini-series, docu-entertainment, or web series" },
+  { level: "PROMOS & TEASERS", desc: "Cinematic high-energy trailer cuts for platform marketing" },
+  { level: "REELS & SHORTS", desc: "Vertical-first snackable scene hooks for Instagram & YouTube" },
+  { level: "INFLUENCER HOOKS", desc: "Creator-led reaction, review, and integration assets" },
+  { level: "BRAND-SAFE CUTDOWNS", desc: "Bespoke 30s / 15s brand-focused cuts for performance ads" },
+  { level: "SOCIAL EXTENSIONS", desc: "BTS, meme formats, sound bites, and community engagement posts" },
+];
 
 export const STRATEGY = {
   codevelopmentModel: {
     title: "The Co-Development Model",
     description:
       "Unlike traditional production houses, Salt Media involves brands from the concept stage itself. This ensures authentic integration, aligned incentives, and content that serves both brand objectives and audience entertainment.",
+    operatingLogic: "Brand Truth → Format Lock → Script Sprint → Production Pod → Post Factory",
     phases: [
       {
         phase: "01",
@@ -195,10 +422,10 @@ export const STRATEGY = {
         description:
           "Understanding brand objectives, audience insights, and platform requirements to identify the right content opportunity.",
         activities: [
-          "Brand immersion workshops",
-          "Audience research & insights",
-          "Platform strategy alignment",
+          "Brand immersion & core truth discovery",
+          "Audience research & platform insights",
           "Content opportunity mapping",
+          "Format & platform alignment",
         ],
       },
       {
@@ -207,10 +434,10 @@ export const STRATEGY = {
         description:
           "Collaborative creation of the content IP with the brand embedded from day one.",
         activities: [
-          "IP ideation & concept development",
+          "Concept & narrative development",
           "Brand integration framework",
+          "Format lock & script sprint",
           "Creator & talent mapping",
-          "Format & narrative design",
         ],
       },
       {
@@ -219,10 +446,10 @@ export const STRATEGY = {
         description:
           "Full-scale production with Salt Media's 150+ crew capacity and entertainment-grade quality.",
         activities: [
-          "Pre-production & planning",
-          "Filming & post-production",
-          "Brand integration execution",
-          "Quality assurance & delivery",
+          "Production pod deployment",
+          "Filming with broadcast equipment",
+          "Seamless narrative brand placement",
+          "Post-factory editing & color grading",
         ],
       },
       {
@@ -231,129 +458,33 @@ export const STRATEGY = {
         description:
           "Strategic distribution across platforms with amplification through digital and creator networks.",
         activities: [
-          "Platform distribution strategy",
-          "Creator amplification network",
-          "Social media & digital marketing",
-          "Performance tracking & optimization",
+          "Platform delivery & compliance",
+          "Multi-format output stack cutdowns",
+          "Social & creator amplification",
+          "Performance tracking & reporting",
         ],
       },
     ],
   },
-  contentStrategy: {
-    title: "Platform-First Content Strategy",
-    pillars: [
-      {
-        title: "Creator Authenticity",
-        description: "Content led by authentic creator voices that audiences trust.",
-      },
-      {
-        title: "Narrative Integration",
-        description: "Brand integration that serves the story, not interrupts it.",
-      },
-      {
-        title: "Platform Optimization",
-        description: "Content designed for the specific platform and its audience behavior.",
-      },
-      {
-        title: "Data-Driven Iteration",
-        description: "Continuous optimization based on real-time performance data.",
-      },
-    ],
-  },
-  audienceStrategy: {
-    title: "Reaching Digital-Native India",
-    segments: [
-      {
-        name: "Gen Z (18-24)",
-        description: "Mobile-first, short-form content enthusiasts",
-        platforms: "Instagram, YouTube Shorts, Amazon MX Player",
-      },
-      {
-        name: "Young Millennials (25-34)",
-        description: "OTT subscribers seeking quality entertainment",
-        platforms: "Amazon MX Player, JioHotstar, JioCinema",
-      },
-      {
-        name: "Urban Mass (25-44)",
-        description: "Diverse content consumers across platforms",
-        platforms: "YouTube, OTT platforms, Linear TV",
-      },
-    ],
-  },
 };
 
-export const IMPACT = {
-  title: "Measurable Impact",
-  metrics: [
-    {
-      category: "Audience Impact",
-      items: [
-        { value: "500M+", label: "Total views generated across platforms" },
-        { value: "65%", label: "Average completion rate" },
-        { value: "3x", label: "Higher engagement vs. traditional ads" },
-        { value: "40%", label: "Lower cost per engaged viewer" },
-      ],
-    },
-    {
-      category: "Brand Impact",
-      items: [
-        { value: "85%", label: "Brand recall in integrated content" },
-        { value: "2.5x", label: "Purchase intent lift" },
-        { value: "100+", label: "Brand partnerships executed" },
-        { value: "92%", label: "Client retention rate" },
-      ],
-    },
-    {
-      category: "Production Scale",
-      items: [
-        { value: "50+", label: "Shows produced" },
-        { value: "15+", label: "Original IPs created" },
-        { value: "150+", label: "Crew capacity" },
-        { value: "10+", label: "Platform partnerships" },
-      ],
-    },
+export const CONTACT_PITCH = {
+  headline: "LET'S BUILD WHAT'S NEXT.",
+  subheadline: "Ready to create content that brands want to fund, platforms want to air, and audiences want to watch?",
+  offerBox: {
+    title: "THE FIRST MOVE",
+    items: [
+      "3 AFP CONCEPTS",
+      "1 PILOT-READY TREATMENT",
+      "1 PRODUCTION ROADMAP",
+    ],
+  },
+  details: [
+    { label: "General", value: "hello@saltmedia.in" },
+    { label: "Partnerships", value: "partnerships@saltmedia.in" },
+    { label: "Location", value: "Mumbai, India" },
   ],
-};
-
-export const CONTENT_PORTFOLIO = {
-  categories: [
-    {
-      name: "Branded Entertainment",
-      description: "Long-form entertainment co-developed with brands for platform distribution.",
-      examples: [
-        "Brand-funded original series on Amazon MX Player",
-        "Branded docu-entertainment for JioHotstar",
-        "Reality formats with deep brand integration",
-      ],
-    },
-    {
-      name: "Original IPs",
-      description: "Proprietary content intellectual properties developed by Salt Media.",
-      examples: [
-        "Original drama and comedy series",
-        "Reality and competition formats",
-        "Docu-entertainment properties",
-      ],
-    },
-    {
-      name: "Digital-First Content",
-      description: "Content designed specifically for digital platforms and social media distribution.",
-      examples: [
-        "YouTube originals and creator collaborations",
-        "Instagram and short-form content",
-        "Micro-drama series for mobile",
-      ],
-    },
-    {
-      name: "Ad Films & Brand Content",
-      description: "Premium advertising content with entertainment-grade production value.",
-      examples: [
-        "Cinematic brand films",
-        "Campaign content for FMCG, auto, tech brands",
-        "Festival and tentpole specials",
-      ],
-    },
-  ],
+  socials: ["Instagram", "LinkedIn", "YouTube"],
 };
 
 export const SECTIONS = [
@@ -364,49 +495,75 @@ export const SECTIONS = [
   { id: "content", label: "Content", number: "05" },
   { id: "amazon-afp", label: "Amazon AFP", number: "06" },
   { id: "strategy", label: "Strategy", number: "07" },
-  { id: "impact", label: "Impact", number: "08" },
-  { id: "contact", label: "Contact", number: "09" },
+  { id: "starter-territories", label: "What We Can Build", number: "08" },
+  { id: "impact", label: "Impact", number: "09" },
+  { id: "contact", label: "Contact", number: "10" },
 ];
 
-export const NAVIGATION_ITEMS = [
+export const MENU_NAV_TREE = [
   {
+    number: "01",
+    id: "home",
+    title: "HOME",
+    subsections: ["Hero Sequence", "Brand Positioning"],
+  },
+  {
+    number: "02",
     id: "about",
-    label: "About",
-    subsections: ["Company", "Vision", "Capabilities"],
+    title: "ABOUT",
+    subsections: ["Company", "Vision & Mission", "Philosophy", "Capabilities"],
   },
   {
+    number: "03",
     id: "opportunity",
-    label: "Opportunity",
-    subsections: ["Market", "Audience", "The Gap"],
+    title: "OPPORTUNITY",
+    subsections: ["The Market", "The Problem", "The Solution"],
   },
   {
+    number: "04",
     id: "ecosystem",
-    label: "Ecosystem",
-    subsections: ["Platforms", "Brands", "Creators"],
+    title: "ECOSYSTEM",
+    subsections: ["Platforms", "Approved Brands", "Creator Network"],
   },
   {
+    number: "05",
     id: "content",
-    label: "Content",
-    subsections: ["Formats", "Portfolio", "Case Studies"],
+    title: "CONTENT",
+    subsections: [
+      "Narrative Formats",
+      "Selected Work & IPs",
+      "Micro-Drama Universe",
+      "Factual & Documentary",
+    ],
   },
   {
+    number: "06",
     id: "amazon-afp",
-    label: "Amazon AFP",
-    subsections: ["Opportunity", "Proposition", "Ecosystem"],
+    title: "AMAZON AFP",
+    subsections: ["AFP Model", "Win-Win-Win Ecosystem", "Why Salt Media"],
   },
   {
+    number: "07",
     id: "strategy",
-    label: "Strategy",
-    subsections: ["Co-Development", "Execution", "Audience"],
+    title: "STRATEGY",
+    subsections: ["Co-Development", "Operating Model", "Social Intelligence"],
   },
   {
+    number: "08",
+    id: "starter-territories",
+    title: "WHAT WE CAN BUILD",
+    subsections: ["Starter Territories", "Output Stack"],
+  },
+  {
+    number: "09",
     id: "impact",
-    label: "Impact",
-    subsections: ["Metrics", "Outcomes", "Scale"],
+    title: "IMPACT",
+    subsections: ["Verified Credentials", "Awards & Recognition"],
   },
   {
+    number: "10",
     id: "contact",
-    label: "Contact",
-    subsections: [],
+    title: "CONTACT",
+    subsections: ["The First Move", "Start a Conversation"],
   },
 ];
