@@ -16,6 +16,7 @@ import StarterTerritoriesSection from "@/components/sections/StarterTerritoriesS
 import OutputStackSection from "@/components/sections/OutputStackSection";
 import ImpactSection from "@/components/sections/ImpactSection";
 import ContactSection from "@/components/sections/ContactSection";
+import AskSalt from "@/components/ai/AskSalt";
 
 /**
  * PanelWrapper — gives each child section the classes the HorizontalScroll
@@ -55,6 +56,7 @@ export default function Home() {
     <>
       <AmbientParticles />
       <Navigation />
+      <AskSalt />
 
       <main id="main-scroll-container" className="relative w-full bg-black">
 
