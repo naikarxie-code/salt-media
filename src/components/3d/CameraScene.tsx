@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, Preload, Sparkles } from "@react-three/drei";
+import { Preload, Sparkles } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { CameraModel } from "./CameraModel";
@@ -62,11 +62,19 @@ export default function CameraScene() {
         style={{ background: "transparent", width: "100%", height: "100%" }}
       >
         <Suspense fallback={null}>
-          <Environment preset="studio" />
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
-          <directionalLight position={[-8, -4, -5]} intensity={0.4} color="#aaaaff" />
-          <pointLight position={[0, 5, 8]} intensity={0.8} color="#ffffff" />
+          {/* Studio-style lighting — no external HDR fetch needed */}
+          <ambientLight intensity={0.6} color="#ffffff" />
+          {/* Key light — warm, from upper right */}
+          <directionalLight position={[10, 10, 5]} intensity={2.0} color="#fff5e6" />
+          {/* Fill light — cool, from lower left */}
+          <directionalLight position={[-8, -4, -5]} intensity={0.6} color="#b0c4ff" />
+          {/* Rim / back light — bright edge definition */}
+          <directionalLight position={[-5, 5, -8]} intensity={1.0} color="#ffffff" />
+          {/* Top-down accent */}
+          <pointLight position={[0, 8, 4]} intensity={1.0} color="#ffffff" />
+          {/* Front fill for shadow softening */}
+          <pointLight position={[0, 0, 10]} intensity={0.4} color="#e8e0ff" />
+          <hemisphereLight args={["#ffffff", "#333344", 0.5]} />
           <Sparkles count={50} scale={10} size={2.5} speed={0.4} opacity={0.3} color="#f59e0b" />
           <SceneContent />
           <Preload all />
