@@ -91,7 +91,7 @@ export default function AboutSection() {
         </div>
 
         <div ref={textRef} className="flex flex-col gap-6 lg:pt-2">
-          <p className="reveal-line text-lg md:text-xl text-neutral-200 leading-relaxed font-light">
+          <p className="reveal-line text-lg md:text-xl text-neutral-300 leading-relaxed font-normal">
             {COMPANY.description}
           </p>
           
@@ -99,7 +99,7 @@ export default function AboutSection() {
           <div className="reveal-line p-6 rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-950/30 via-neutral-950/60 to-neutral-950/80 backdrop-blur-xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-1 h-full bg-amber-400" />
             <p className="text-sm uppercase font-mono tracking-widest text-amber-400 mb-2 font-semibold">THE SALT PHILOSOPHY</p>
-            <p className="text-base md:text-lg text-white font-medium italic">
+            <p className="text-base md:text-lg text-neutral-200 font-normal italic">
               "{COMPANY.philosophy}"
             </p>
           </div>
@@ -107,11 +107,15 @@ export default function AboutSection() {
           <div className="reveal-line grid grid-cols-1 sm:grid-cols-2 gap-4 mt-1">
             <div className="p-5 rounded-2xl border border-neutral-800/80 bg-neutral-950/60 backdrop-blur-xl hover:border-neutral-700 transition-all duration-300">
               <h3 className="text-[10px] uppercase tracking-[0.25em] text-amber-400/90 font-mono mb-1.5">Vision</h3>
-              <p className="text-xs md:text-sm text-neutral-300 leading-relaxed">{COMPANY.vision}</p>
+              <p className="text-xs md:text-sm text-neutral-300 leading-relaxed font-normal">
+                {COMPANY.vision}
+              </p>
             </div>
             <div className="p-5 rounded-2xl border border-neutral-800/80 bg-neutral-950/60 backdrop-blur-xl hover:border-neutral-700 transition-all duration-300">
               <h3 className="text-[10px] uppercase tracking-[0.25em] text-amber-400/90 font-mono mb-1.5">Mission</h3>
-              <p className="text-xs md:text-sm text-neutral-300 leading-relaxed">{COMPANY.mission}</p>
+              <p className="text-xs md:text-sm text-neutral-300 leading-relaxed font-normal">
+                {COMPANY.mission}
+              </p>
             </div>
           </div>
         </div>
@@ -130,7 +134,7 @@ export default function AboutSection() {
                 0{i + 1}
               </span>
             </div>
-            <p className="text-xs md:text-sm text-neutral-300 leading-relaxed font-light">{diff}</p>
+            <p className="text-xs md:text-sm text-neutral-300 leading-relaxed font-normal">{diff}</p>
           </div>
         ))}
       </div>

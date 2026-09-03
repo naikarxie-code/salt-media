@@ -2,6 +2,7 @@
 
 import Reveal from "@/components/ui/Reveal";
 import { OPPORTUNITY } from "@/lib/content";
+import OpportunityGraphWidget from "@/components/ui/OpportunityGraphWidget";
 
 export default function OpportunitySection() {
   return (
@@ -35,15 +36,25 @@ export default function OpportunitySection() {
         </div>
       </Reveal>
 
-      {/* Main headline */}
-      <Reveal>
-        <h2 className="relative z-10 text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl">
-          {OPPORTUNITY.headline}
-        </h2>
-        <p className="relative z-10 text-lg md:text-xl text-amber-400/90 font-mono mt-4 font-light">
-          {OPPORTUNITY.subheadline}
-        </p>
-      </Reveal>
+      {/* Main headline + Data Graph Widget */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="lg:col-span-6 xl:col-span-7">
+          <Reveal>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] leading-[0.98] text-white">
+              {OPPORTUNITY.headline}
+            </h2>
+            <p className="text-base md:text-xl text-amber-400/90 font-mono mt-4 font-light leading-relaxed">
+              {OPPORTUNITY.subheadline}
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="lg:col-span-6 xl:col-span-5">
+          <Reveal delay={0.15}>
+            <OpportunityGraphWidget />
+          </Reveal>
+        </div>
+      </div>
 
       {/* The 5 Narrative Problems */}
       <div className="relative z-10 mt-14">
@@ -66,7 +77,7 @@ export default function OpportunitySection() {
                 <span className="text-amber-400 font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-amber-400/10 border border-amber-400/20 shrink-0 mt-0.5">
                   0{i + 1}
                 </span>
-                <p className="text-sm md:text-base text-neutral-300 group-hover:text-white transition-colors font-light leading-relaxed">
+                <p className="text-sm md:text-base text-neutral-300 group-hover:text-white transition-colors font-normal leading-relaxed">
                   {point}
                 </p>
               </div>
@@ -92,7 +103,7 @@ export default function OpportunitySection() {
               The Co-Development Model
             </h3>
 
-            <p className="text-base md:text-xl text-neutral-200 leading-relaxed font-light mb-6">
+            <p className="text-base md:text-xl text-neutral-300 leading-relaxed font-normal mb-6">
               {OPPORTUNITY.solution}
             </p>
 

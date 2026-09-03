@@ -258,6 +258,7 @@ export default function VideoHeroSection() {
             pointerEvents: "none",
           }}
         >
+          {/* Tagline ABOVE logo */}
           <div className="flex items-center gap-3 mb-3">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             <p
@@ -274,17 +275,25 @@ export default function VideoHeroSection() {
             </p>
           </div>
 
+          {/* Salt Media Logo from public directory */}
+          <div className="mb-4 md:mb-6">
+            <img
+              src="/Salt%20media%20Logo_2.png"
+              alt="Salt Media Logo"
+              className="h-24 md:h-36 lg:h-44 w-auto object-contain drop-shadow-[0_0_25px_rgba(245,158,11,0.4)]"
+            />
+          </div>
+
           <h1
             style={{
-              fontSize: "clamp(3.5rem, 9vw, 9rem)",
+              fontSize: "clamp(2rem, 4vw, 4rem)",
               fontWeight: 700,
               letterSpacing: "-0.04em",
-              lineHeight: 0.88,
+              lineHeight: 0.92,
               margin: 0,
             }}
           >
-            SALT
-            <br />
+            BRANDED{" "}
             <span
               style={{
                 backgroundImage: "linear-gradient(90deg, #ffffff, #f59e0b, #888888)",
@@ -293,7 +302,7 @@ export default function VideoHeroSection() {
                 backgroundClip: "text",
               }}
             >
-              MEDIA
+              CONTENT
             </span>
           </h1>
 
@@ -302,8 +311,8 @@ export default function VideoHeroSection() {
               marginTop: "1.5rem",
               fontSize: "clamp(1rem, 1.8vw, 1.25rem)",
               fontWeight: 300,
-              color: "rgba(255,255,255,0.8)",
-              maxWidth: "46ch",
+              color: "rgba(255,255,255,0.75)",
+              maxWidth: "48ch",
               lineHeight: 1.6,
             }}
           >

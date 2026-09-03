@@ -47,19 +47,27 @@ export default function HeroSection() {
       <div className="max-w-3xl">
         <p
           ref={labelRef}
-          className="text-[11px] md:text-xs uppercase tracking-[0.3em] text-neutral-500 mb-6"
+          className="text-[11px] md:text-xs uppercase tracking-[0.3em] text-amber-400 font-mono font-semibold mb-3 flex items-center gap-2"
         >
-          Creator-Led Production Studio
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse inline-block" />
+          CREATOR-LED PRODUCTION STUDIO • BRANDED CONTENT & AFP
         </p>
+
+        <div className="mb-4 md:mb-6">
+          <img
+            src="/Salt%20media%20Logo_2.png"
+            alt="Salt Media Logo"
+            className="h-24 md:h-36 lg:h-44 w-auto object-contain drop-shadow-[0_0_25px_rgba(245,158,11,0.4)]"
+          />
+        </div>
 
         <h1
           ref={headlineRef}
-          className="text-[clamp(3rem,8vw,8rem)] font-bold tracking-[-0.04em] leading-[0.88]"
+          className="text-[clamp(2rem,4vw,4rem)] font-bold tracking-[-0.04em] leading-[0.92]"
         >
-          SALT
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500">
-            MEDIA
+          BRANDED{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-amber-400">
+            CONTENT
           </span>
         </h1>
 
