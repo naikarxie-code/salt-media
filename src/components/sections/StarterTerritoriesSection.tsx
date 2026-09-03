@@ -12,7 +12,7 @@ export default function StarterTerritoriesSection() {
   return (
     <section
       id="starter-territories"
-      className="relative py-12 md:py-20 px-6 md:px-16 lg:px-24 overflow-hidden bg-black flex flex-col justify-center min-h-screen"
+      className="relative py-6 md:py-10 lg:py-12 px-6 md:px-12 lg:px-20 overflow-hidden bg-black flex flex-col justify-center h-full min-h-screen"
     >
       {/* ── Background Aesthetics ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -23,7 +23,7 @@ export default function StarterTerritoriesSection() {
 
       {/* Large Backdrop Watermark */}
       <span
-        className="absolute top-10 right-10 text-[25vw] font-black text-white/[0.02] leading-none select-none pointer-events-none"
+        className="absolute top-6 right-10 text-[20vw] lg:text-[22vw] font-black text-white/[0.02] leading-none select-none pointer-events-none"
         aria-hidden
       >
         08
@@ -31,10 +31,10 @@ export default function StarterTerritoriesSection() {
 
       {/* Section label */}
       <Reveal>
-        <div className="relative z-10 flex items-center gap-4 mb-4">
-          <span className="text-amber-400 font-mono text-sm font-semibold">08</span>
-          <div className="w-12 h-px bg-gradient-to-r from-amber-400/50 to-neutral-700" />
-          <span className="text-[11px] uppercase tracking-[0.35em] text-neutral-400 font-medium">
+        <div className="relative z-10 flex items-center gap-3 mb-2 md:mb-3">
+          <span className="text-amber-400 font-mono text-xs md:text-sm font-semibold">08</span>
+          <div className="w-10 md:w-12 h-px bg-gradient-to-r from-amber-400/50 to-neutral-700" />
+          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-neutral-400 font-medium">
             AFP Concept Territories
           </span>
         </div>
@@ -42,14 +42,14 @@ export default function StarterTerritoriesSection() {
 
       {/* Main Headline */}
       <Reveal>
-        <h2 className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl mb-3">
+        <h2 className="relative z-10 text-2xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl mb-2 md:mb-3">
           WHAT WE CAN
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">
             BUILD FIRST
           </span>
         </h2>
-        <p className="relative z-10 text-base md:text-lg text-neutral-300 max-w-3xl mb-8 font-light">
+        <p className="relative z-10 text-xs md:text-sm lg:text-base text-neutral-300 max-w-3xl mb-4 md:mb-6 font-light">
           Four turn-key starter concept territories co-designed for Amazon MX Player and brand partners.
         </p>
       </Reveal>
