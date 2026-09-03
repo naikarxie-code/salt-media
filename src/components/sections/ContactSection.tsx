@@ -77,6 +77,28 @@ export default function ContactSection() {
               <span>START A CONVERSATION</span>
               <span className="text-base">→</span>
             </a>
+
+            <div className="mt-3.5 flex flex-wrap justify-center items-center gap-x-4 gap-y-1 text-[11px] font-mono text-neutral-400 tracking-wider">
+              <span>
+                Partnerships:{" "}
+                <a
+                  href="mailto:partnerships@saltmedia.in?subject=Salt%20Media%20x%20Amazon%20AFP%20Partnership"
+                  className="text-amber-300 hover:text-white underline decoration-amber-500/50 underline-offset-4 font-semibold transition-colors"
+                >
+                  partnerships@saltmedia.in
+                </a>
+              </span>
+              <span className="hidden sm:inline text-neutral-600">•</span>
+              <span>
+                General:{" "}
+                <a
+                  href="mailto:hello@saltmedia.in?subject=Salt%20Media%20Inquiry"
+                  className="text-amber-300 hover:text-white underline decoration-amber-500/50 underline-offset-4 font-semibold transition-colors"
+                >
+                  hello@saltmedia.in
+                </a>
+              </span>
+            </div>
           </div>
         </Reveal>
 
