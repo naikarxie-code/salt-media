@@ -7,7 +7,7 @@ export default function AmazonAFPSection() {
   return (
     <section
       id="amazon-afp"
-      className="relative py-12 md:py-16 px-6 md:px-16 lg:px-24 overflow-hidden bg-black"
+      className="relative py-6 md:py-10 lg:py-12 px-6 md:px-12 lg:px-20 overflow-hidden bg-black flex flex-col justify-center h-full min-h-screen"
     >
       {/* ── Background Aesthetics ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -18,7 +18,7 @@ export default function AmazonAFPSection() {
 
       {/* Large Backdrop Watermark */}
       <span
-        className="absolute top-10 right-10 text-[25vw] font-black text-white/[0.02] leading-none select-none pointer-events-none"
+        className="absolute top-6 right-10 text-[20vw] lg:text-[22vw] font-black text-white/[0.02] leading-none select-none pointer-events-none"
         aria-hidden
       >
         06
@@ -26,10 +26,10 @@ export default function AmazonAFPSection() {
 
       {/* Section label */}
       <Reveal>
-        <div className="relative z-10 flex items-center gap-4 mb-4">
-          <span className="text-amber-400 font-mono text-sm font-semibold">06</span>
-          <div className="w-12 h-px bg-gradient-to-r from-amber-400/50 to-neutral-700" />
-          <span className="text-[11px] uppercase tracking-[0.35em] text-neutral-400 font-medium">
+        <div className="relative z-10 flex items-center gap-3 mb-2 md:mb-3">
+          <span className="text-amber-400 font-mono text-xs md:text-sm font-semibold">06</span>
+          <div className="w-10 md:w-12 h-px bg-gradient-to-r from-amber-400/50 to-neutral-700" />
+          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-neutral-400 font-medium">
             Amazon AFP Partnership
           </span>
         </div>
@@ -37,27 +37,27 @@ export default function AmazonAFPSection() {
 
       {/* Headline */}
       <Reveal>
-        <h2 className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl mb-3">
+        <h2 className="relative z-10 text-2xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[0.95] max-w-5xl mb-2 md:mb-3">
           ADVERTISER FUNDED
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">
             PROGRAMMING (AFP)
           </span>
         </h2>
-        <p className="relative z-10 text-base md:text-lg text-neutral-300 max-w-3xl mb-8 font-light">
+        <p className="relative z-10 text-xs md:text-sm lg:text-base text-neutral-300 max-w-3xl mb-4 md:mb-6 font-light">
           {AMAZON_AFP.description}
         </p>
       </Reveal>
 
       {/* ── Win-Win-Win 4 Stakeholder Framework ── */}
-      <div className="relative z-10 mb-10">
+      <div className="relative z-10 mb-4 md:mb-6">
         <Reveal>
-          <h3 className="text-xs uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold mb-4">
+          <h3 className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold mb-2">
             THE WIN-WIN-WIN ECOSYSTEM
           </h3>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             {
               role: "BRAND",
@@ -90,20 +90,20 @@ export default function AmazonAFPSection() {
           ].map((item, idx) => (
             <Reveal key={idx} delay={idx * 0.08}>
               <div
-                className={`p-5 rounded-2xl border ${item.border} ${item.bg} backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] shadow-xl flex flex-col justify-between h-full`}
+                className={`p-3.5 md:p-4 rounded-xl border ${item.border} ${item.bg} backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] shadow-xl flex flex-col justify-between h-full`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`font-mono text-xs font-bold tracking-widest ${item.color}`}>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className={`font-mono text-[10px] md:text-xs font-bold tracking-widest ${item.color}`}>
                       0{idx + 1} • {item.role}
                     </span>
-                    <span className="w-2 h-2 rounded-full bg-white/40" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
                   </div>
-                  <p className="text-xs md:text-sm text-neutral-200 leading-relaxed font-light">
+                  <p className="text-xs text-neutral-200 leading-relaxed font-light">
                     {item.desc}
                   </p>
                 </div>
-                <div className="mt-3.5 pt-2.5 border-t border-white/10 text-[10px] font-mono text-neutral-400 uppercase">
+                <div className="mt-2.5 pt-2 border-t border-white/10 text-[9px] md:text-[10px] font-mono text-neutral-400 uppercase">
                   STAKEHOLDER BENEFIT
                 </div>
               </div>
@@ -113,25 +113,25 @@ export default function AmazonAFPSection() {
       </div>
 
       {/* ── Why Salt Media for AFP ── */}
-      <div className="relative z-10 p-6 md:p-8 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-neutral-950/90 via-neutral-900/60 to-amber-950/20 backdrop-blur-2xl">
+      <div className="relative z-10 p-4 md:p-5 rounded-2xl border border-amber-500/30 bg-gradient-to-br from-neutral-950/90 via-neutral-900/60 to-amber-950/20 backdrop-blur-2xl">
         <Reveal>
-          <span className="text-xs uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold block mb-1.5">
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold block mb-1">
             WHY SALT MEDIA FOR AFP
           </span>
-          <h3 className="text-xl md:text-3xl font-bold text-white tracking-tight mb-6">
+          <h3 className="text-base md:text-xl font-bold text-white tracking-tight mb-3">
             Built Specifically for Platform-Native Brand Programming
           </h3>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2.5 md:gap-3">
           {AMAZON_AFP.whySaltMedia.map((reason, idx) => (
             <div
               key={idx}
-              className="p-4 rounded-xl border border-neutral-800 bg-black/60 hover:border-amber-400/40 transition-all duration-300"
+              className="p-3 rounded-lg border border-neutral-800 bg-black/60 hover:border-amber-400/40 transition-all duration-300"
             >
-              <span className="text-amber-400 font-mono text-xs font-bold block mb-1.5">0{idx + 1}</span>
-              <h4 className="text-sm font-bold text-white mb-1.5">{reason.title}</h4>
-              <p className="text-xs text-neutral-300 font-light leading-relaxed">{reason.desc}</p>
+              <span className="text-amber-400 font-mono text-[10px] md:text-xs font-bold block mb-1">0{idx + 1}</span>
+              <h4 className="text-xs font-bold text-white mb-1">{reason.title}</h4>
+              <p className="text-[11px] text-neutral-300 font-light leading-relaxed">{reason.desc}</p>
             </div>
           ))}
         </div>
