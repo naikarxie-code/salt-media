@@ -1,26 +1,66 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { SECTIONS, MENU_NAV_TREE } from "@/lib/content";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// IDs that live inside the horizontal scroll container
+const HORIZONTAL_SECTION_IDS = [
+  "content",
+  "amazon-afp",
+  "strategy",
+  "starter-territories",
+  "output-stack",
+  "impact",
+  "contact",
+];
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  // ── Detect active section ──────────────────────────────────────────
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 80);
 
-      // Determine active section
-      const sections = SECTIONS.map((s) => document.getElementById(s.id));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = sections[i];
+      // 1. Check vertical sections first (home, about, opportunity, ecosystem)
+      const verticalIds = SECTIONS.filter(
+        (s) => !HORIZONTAL_SECTION_IDS.includes(s.id)
+      ).map((s) => s.id);
+
+      let found = false;
+
+      // 2. Check horizontal panels — find which panel is currently visible
+      //    by checking each panel's bounding rect (GSAP translates them)
+      for (let i = HORIZONTAL_SECTION_IDS.length - 1; i >= 0; i--) {
+        const id = HORIZONTAL_SECTION_IDS[i];
+        const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= window.innerHeight / 2) {
-            setActiveSection(SECTIONS[i].id);
+          // Panel is visible when its left edge is within the viewport
+          if (
+            rect.left < window.innerWidth * 0.6 &&
+            rect.right > window.innerWidth * 0.2
+          ) {
+            setActiveSection(id);
+            found = true;
             break;
+          }
+        }
+      }
+
+      // 3. If no horizontal panel is active, check vertical sections
+      if (!found) {
+        for (let i = verticalIds.length - 1; i >= 0; i--) {
+          const el = document.getElementById(verticalIds[i]);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2) {
+              setActiveSection(verticalIds[i]);
+              break;
+            }
           }
         }
       }
@@ -30,16 +70,66 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false);
+  // ── Navigate to section ────────────────────────────────────────────
+  const scrollToSection = useCallback((id: string) => {
+    setMenuOpen(false);
+
+    // For vertical sections, use native scrollIntoView
+    if (!HORIZONTAL_SECTION_IDS.includes(id)) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+      return;
     }
-  };
+
+    // For horizontal sections, calculate the correct vertical scroll position
+    // The horizontal scroll container pins at a certain scrollY and
+    // each panel is one viewport width apart in scroll distance.
+    const panelIndex = HORIZONTAL_SECTION_IDS.indexOf(id);
+    if (panelIndex === -1) return;
+
+    // Find the horizontal scroll container's ScrollTrigger
+    const triggers = ScrollTrigger.getAll();
+    const hsTrigger = triggers.find((t) => {
+      const trig = t.vars.trigger;
+      if (trig && typeof trig !== "string") {
+        const el = trig as HTMLElement;
+        // The horizontal scroll container wraps .h-panel elements
+        return el.querySelector(".h-panel") !== null;
+      }
+      return false;
+    });
+
+    if (hsTrigger) {
+      const startScroll = hsTrigger.start;
+      const endScroll = hsTrigger.end;
+      const totalPanels = HORIZONTAL_SECTION_IDS.length;
+      // Each panel occupies an equal fraction of the scroll range
+      const scrollPerPanel = (endScroll - startScroll) / totalPanels;
+      const targetScroll = startScroll + panelIndex * scrollPerPanel;
+
+      // Use native smooth scroll — Lenis intercepts this
+      window.scrollTo({ top: targetScroll, behavior: "smooth" });
+    } else {
+      // Fallback: try native scroll
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
 
   // Primary nav links (About through Impact)
-  const primaryNavIds = ["about", "opportunity", "ecosystem", "content", "amazon-afp", "strategy", "impact"];
+  const primaryNavIds = [
+    "about",
+    "opportunity",
+    "ecosystem",
+    "content",
+    "amazon-afp",
+    "strategy",
+    "impact",
+  ];
 
   return (
     <>
