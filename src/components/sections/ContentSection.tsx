@@ -207,18 +207,33 @@ export default function ContentSection() {
           {MICRO_DRAMAS.map((drama, idx) => (
             <div
               key={idx}
-              className="p-3 rounded-xl border border-neutral-800/80 bg-black/60 hover:border-amber-400/40 transition-all duration-300"
+              className="p-3 rounded-xl border border-neutral-800/80 bg-black/60 hover:border-amber-400/50 transition-all duration-300 flex flex-col group"
             >
-              <div className="w-full aspect-[9/12] rounded-lg bg-neutral-900 flex flex-col justify-between p-2.5 border border-neutral-800 mb-2 group relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                <span className="relative z-10 text-[9px] font-mono text-amber-400 px-1.5 py-0.5 rounded bg-black/60 border border-amber-400/20 w-max">
+              <div className="w-full aspect-[9/13] rounded-lg bg-neutral-900 flex flex-col justify-between p-2.5 border border-neutral-800 mb-2 relative overflow-hidden">
+                {drama.image ? (
+                  <>
+                    <img
+                      src={drama.image}
+                      alt={drama.title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 pointer-events-none" />
+                  </>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-950 to-amber-950/20" />
+                    <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:16px_16px] opacity-60" />
+                  </>
+                )}
+
+                <span className="relative z-10 text-[9px] font-mono font-semibold uppercase tracking-wider text-amber-400 px-1.5 py-0.5 rounded bg-black/75 backdrop-blur-md border border-amber-400/30 w-max shadow-sm">
                   {drama.category}
                 </span>
-                <span className="relative z-10 text-xs font-bold text-white tracking-wide">
+                <span className="relative z-10 text-xs font-bold text-white tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                   {drama.title}
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-neutral-500 block text-center uppercase">
+              <span className="text-[10px] font-mono text-neutral-500 block text-center uppercase group-hover:text-amber-400/80 transition-colors">
                 {drama.platform}
               </span>
             </div>

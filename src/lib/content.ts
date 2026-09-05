@@ -155,7 +155,6 @@ export const OPPORTUNITY = {
   philosophyQuote: "The brand should feel like a force inside the story, not a logo pasted on the wall.",
 };
 
-// Verified Canva Selected Works & IPs
 export const SELECTED_WORKS = [
   {
     id: "first-copy",
@@ -199,16 +198,61 @@ export const SELECTED_WORKS = [
   },
 ];
 
+export interface MicroDrama {
+  title: string;
+  category: string;
+  platform: string;
+  image?: string;
+}
+
 // Verified Micro-Drama / Short-Form IP
-export const MICRO_DRAMAS = [
-  { title: "Omi the GOAT", category: "Comedy", platform: "Vertical Mobile" },
-  { title: "Hustle Queen Kajal", category: "Drama", platform: "Vertical Mobile" },
-  { title: "Cringe King Pratya", category: "Satire", platform: "Vertical Mobile" },
-  { title: "Notice Period", category: "Workplace", platform: "Vertical Mobile" },
-  { title: "Narbhakshi", category: "Thriller", platform: "Vertical Mobile" },
-  { title: "Dhokebaaz Judwaa", category: "Mystery", platform: "Vertical Mobile" },
-  { title: "Rooh ki Pukaar", category: "Horror", platform: "Vertical Mobile" },
-  { title: "CEO vs CEO", category: "Corporate", platform: "Vertical Mobile" },
+export const MICRO_DRAMAS: MicroDrama[] = [
+  {
+    title: "Omi the GOAT",
+    category: "Comedy",
+    platform: "Vertical Mobile",
+    image: "/images/Omi.jpg",
+  },
+  {
+    title: "Hustle Queen Kajal",
+    category: "Drama",
+    platform: "Vertical Mobile",
+    image: "/images/Kajal.jpg",
+  },
+  {
+    title: "Cringe King Pratya",
+    category: "Satire",
+    platform: "Vertical Mobile",
+    image: "/images/Pratya.jpg",
+  },
+  {
+    title: "Notice Period",
+    category: "Workplace",
+    platform: "Vertical Mobile",
+  },
+  {
+    title: "Narbhakshi",
+    category: "Thriller",
+    platform: "Vertical Mobile",
+  },
+  {
+    title: "Dhokebaaz Judwaa",
+    category: "Mystery",
+    platform: "Vertical Mobile",
+    image: "/images/Dhokebaaz%20Judwaa%20Vertical.jpeg",
+  },
+  {
+    title: "Rooh ki Pukaar",
+    category: "Horror",
+    platform: "Vertical Mobile",
+    image: "/images/Rooh%20Ki%20pukaar%20Horizontal%20(2).jpeg",
+  },
+  {
+    title: "CEO vs CEO",
+    category: "Corporate",
+    platform: "Vertical Mobile",
+    image: "/images/CEO%20VS%20CEO.jpg",
+  },
 ];
 
 // Verified Factual & Documentary Works
