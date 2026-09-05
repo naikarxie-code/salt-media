@@ -21,7 +21,7 @@ function SectionContainer({ id, children }: { id: string, children: ReactNode })
       >
         <section
           id={id}
-          className="relative py-6 md:py-8 lg:py-10 px-6 md:px-12 lg:px-20 bg-black min-h-screen flex flex-col justify-start"
+          className="relative pt-24 md:pt-28 pb-12 px-6 md:px-12 lg:px-20 bg-black min-h-screen flex flex-col justify-start"
         >
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] bg-amber-500/06 rounded-full blur-[180px]" />
@@ -245,54 +245,62 @@ export default function ContentSection() {
       <SectionContainer id="content-4">
       {/* ── SUBSECTION 4: FACTUAL & DOCUMENTARY SHOWCASE ── */}
       <div className="relative z-10 mb-12">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mb-8">
           <div>
             <span className="text-xs uppercase tracking-[0.3em] font-mono text-amber-400 font-semibold block mb-1">
               04 • FACTUAL & DOCUMENTARY
             </span>
-            <h3 className="text-xl md:text-3xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
               Non-Fiction & Cultural Documentaries
             </h3>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {["ALL", "FACTUAL", "DOC", "INSTITUTIONAL"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveDocTab(tab)}
-                className={`px-3 py-1 rounded-full text-xs font-mono tracking-wider transition-all duration-300 ${
-                  activeDocTab === tab
-                    ? "bg-amber-400 text-black font-semibold"
-                    : "bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
+          {/* High-visibility Filter Buttons */}
+          <div className="flex items-center gap-1.5 p-1 rounded-full bg-neutral-900/90 border border-neutral-700/80 backdrop-blur-md shadow-xl flex-wrap self-start lg:self-auto">
+            {["ALL", "FACTUAL", "DOC", "INSTITUTIONAL"].map((tab) => {
+              const isActive = activeDocTab === tab;
+              return (
+                <button
+                  key={tab}
+                  onClick={() => setActiveDocTab(tab)}
+                  className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider transition-all duration-300 ${
+                    isActive
+                      ? "bg-amber-400 text-black shadow-[0_0_15px_rgba(245,158,11,0.5)] scale-105"
+                      : "text-neutral-300 hover:text-white hover:bg-neutral-800/90"
+                  }`}
+                >
+                  {tab}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredDocs.map((doc, idx) => (
             <div
-              key={idx}
-              className="p-5 rounded-2xl border border-neutral-800 bg-neutral-950/60 backdrop-blur-xl hover:border-neutral-700 transition-all duration-300 flex flex-col justify-between"
+              key={`${activeDocTab}-${doc.title}`}
+              style={{
+                animation: "docFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+                animationDelay: `${idx * 40}ms`,
+              }}
+              className="p-5 rounded-2xl border border-neutral-800 bg-neutral-950/70 backdrop-blur-xl hover:border-amber-400/40 hover:bg-neutral-900/70 transition-all duration-300 flex flex-col justify-between group shadow-lg"
             >
               <div>
                 <div className="flex justify-between items-center mb-2.5">
                   <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-bold px-2 py-0.5 rounded bg-amber-400/10 border border-amber-400/20">
                     {doc.badge}
                   </span>
-                  <span className="text-[10px] font-mono text-neutral-500">{doc.subline}</span>
+                  <span className="text-[10px] font-mono text-neutral-400">{doc.subline}</span>
                 </div>
-                <h4 className="text-lg font-bold text-white tracking-tight mb-1.5">
+                <h4 className="text-lg font-bold text-white tracking-tight mb-1.5 group-hover:text-amber-300 transition-colors">
                   {doc.title}
                 </h4>
                 <p className="text-xs md:text-sm text-neutral-300 font-light leading-relaxed">
                   {doc.description}
                 </p>
               </div>
-              <div className="mt-3.5 pt-2.5 border-t border-neutral-800/60 text-[10px] font-mono text-neutral-500 uppercase">
+              <div className="mt-4 pt-2.5 border-t border-neutral-800/60 text-[10px] font-mono text-neutral-500 uppercase group-hover:text-amber-400/70 transition-colors">
                 SALT MEDIA PRODUCTION
               </div>
             </div>
