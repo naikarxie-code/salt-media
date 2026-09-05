@@ -7,7 +7,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-12 md:py-20 px-6 md:px-16 lg:px-24 overflow-hidden bg-black border-t border-neutral-900"
+      className="relative py-6 md:py-10 lg:py-12 px-6 md:px-12 lg:px-20 bg-black border-t border-neutral-900 flex flex-col justify-center min-h-screen"
     >
       {/* ── Background Aesthetics ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -36,7 +36,7 @@ export default function ContactSection() {
 
         {/* Main Headline */}
         <Reveal>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] text-white mb-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-[-0.04em] leading-[0.95] text-white mb-3">
             LET'S BUILD
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">
@@ -46,14 +46,14 @@ export default function ContactSection() {
         </Reveal>
 
         <Reveal>
-          <p className="text-base md:text-xl text-neutral-300 max-w-2xl mx-auto font-light leading-relaxed mb-8">
+          <p className="text-xs md:text-sm lg:text-base text-neutral-300 max-w-2xl mx-auto font-light leading-relaxed mb-5">
             {CONTACT_PITCH.subheadline}
           </p>
         </Reveal>
 
         {/* ── THE FIRST MOVE OFFER BOX ── */}
         <Reveal>
-          <div className="p-6 md:p-8 rounded-3xl border border-amber-500/40 bg-gradient-to-b from-neutral-950/90 via-neutral-900/80 to-amber-950/30 backdrop-blur-2xl shadow-[0_0_100px_-20px_rgba(245,158,11,0.2)] mb-8 max-w-3xl mx-auto">
+          <div className="p-4 md:p-6 rounded-2xl border border-amber-500/40 bg-gradient-to-b from-neutral-950/90 via-neutral-900/80 to-amber-950/30 backdrop-blur-2xl shadow-[0_0_100px_-20px_rgba(245,158,11,0.2)] mb-5 max-w-3xl mx-auto">
             <span className="text-xs uppercase tracking-[0.35em] font-mono text-amber-400 font-semibold block mb-4">
               WHAT WE DELIVER IN THE FIRST MEETING
             </span>
@@ -103,7 +103,7 @@ export default function ContactSection() {
         </Reveal>
 
         {/* Contact info strip */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-8 border-t border-neutral-900 text-left max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-5 border-t border-neutral-900 text-left max-w-4xl mx-auto">
           {CONTACT_PITCH.details.map((detail, idx) => (
             <div key={idx} className="p-3.5 rounded-xl border border-neutral-900 bg-neutral-950/40">
               <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400 block mb-1">
@@ -115,7 +115,7 @@ export default function ContactSection() {
         </div>
 
         {/* Footer */}
-        <div className="mt-10 pt-6 border-t border-neutral-900/60 flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-neutral-400 gap-4">
+        <div className="mt-5 pt-4 border-t border-neutral-900/60 flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-neutral-400 gap-3">
           <span>© {new Date().getFullYear()} SALT MEDIA. ALL RIGHTS RESERVED.</span>
           <div className="flex gap-6">
             {CONTACT_PITCH.socials.map((s) => (

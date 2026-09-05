@@ -26,7 +26,13 @@ import AskSalt from "@/components/ai/AskSalt";
 function PanelWrapper({ children }: { children: ReactNode }) {
   return (
     <div className="h-panel w-screen h-screen flex-shrink-0 overflow-hidden relative">
-      <div className="h-full overflow-y-auto">{children}</div>
+      <div 
+        data-lenis-prevent="true" 
+        style={{ overscrollBehavior: 'auto' }}
+        className="h-full overflow-y-auto overflow-x-hidden max-w-[100vw]"
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -76,9 +82,7 @@ export default function Home() {
 
         {/* ── HORIZONTAL SECTIONS (05–10) ───────────────────────────── */}
         <HorizontalScroll>
-          <PanelWrapper>
-            <ContentSection />
-          </PanelWrapper>
+          <ContentSection />
 
           <PanelWrapper>
             <AmazonAFPSection />

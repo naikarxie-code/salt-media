@@ -7,7 +7,7 @@ export default function OutputStackSection() {
   return (
     <section
       id="output-stack"
-      className="relative py-6 md:py-10 lg:py-12 px-6 md:px-12 lg:px-20 overflow-hidden bg-black flex flex-col justify-center h-full min-h-screen"
+      className="relative py-6 md:py-10 lg:py-12 px-6 md:px-12 lg:px-20 bg-black flex flex-col justify-center min-h-screen"
     >
       {/* ── Background Aesthetics ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

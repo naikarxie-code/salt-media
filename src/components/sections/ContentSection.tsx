@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 import Reveal from "@/components/ui/Reveal";
 import {
   NARRATIVE_FORMATS,
@@ -10,6 +10,36 @@ import {
   AWARDS,
   ECOSYSTEM_PARTNERS,
 } from "@/lib/content";
+
+function SectionContainer({ id, children }: { id: string, children: ReactNode }) {
+  return (
+    <div className="h-panel w-screen h-screen flex-shrink-0 overflow-hidden relative">
+      <div 
+        data-lenis-prevent="true" 
+        style={{ overscrollBehavior: 'auto' }}
+        className="h-full overflow-y-auto overflow-x-hidden max-w-[100vw]"
+      >
+        <section
+          id={id}
+          className="relative py-6 md:py-8 lg:py-10 px-6 md:px-12 lg:px-20 bg-black min-h-screen flex flex-col justify-start"
+        >
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] bg-amber-500/06 rounded-full blur-[180px]" />
+            <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-orange-600/05 rounded-full blur-[160px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
+          </div>
+          <span
+            className="absolute top-10 left-10 text-[25vw] font-black text-white/[0.02] leading-none select-none pointer-events-none"
+            aria-hidden
+          >
+            05
+          </span>
+          {children}
+        </section>
+      </div>
+    </div>
+  );
+}
 
 export default function ContentSection() {
   const [activeFormat, setActiveFormat] = useState<number | null>(0);
@@ -27,24 +57,8 @@ export default function ContentSection() {
     : FACTUAL_DOCUMENTARIES.filter((d) => d.badge.toUpperCase().includes(activeDocTab));
 
   return (
-    <section
-      id="content"
-      className="relative py-12 md:py-16 px-6 md:px-16 lg:px-24 overflow-hidden bg-black"
-    >
-      {/* ── Background Aesthetics ── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] bg-amber-500/06 rounded-full blur-[180px]" />
-        <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-orange-600/05 rounded-full blur-[160px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
-      </div>
-
-      {/* Large Backdrop Watermark */}
-      <span
-        className="absolute top-10 left-10 text-[25vw] font-black text-white/[0.02] leading-none select-none pointer-events-none"
-        aria-hidden
-      >
-        05
-      </span>
+    <>
+      <SectionContainer id="content-1">
 
       {/* Section label */}
       <Reveal>
@@ -112,7 +126,9 @@ export default function ContentSection() {
           ))}
         </div>
       </div>
+      </SectionContainer>
 
+      <SectionContainer id="content-2">
       {/* ── SUBSECTION 2: SELECTED WORK & SCRIPTED IPs ── */}
       <div className="relative z-10 mb-12">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -163,13 +179,14 @@ export default function ContentSection() {
 
               <div className="mt-4 pt-2.5 border-t border-neutral-800/80 flex items-center justify-between text-[11px] font-mono text-neutral-400">
                 <span>SALT MEDIA IP</span>
-                <span className="group-hover:translate-x-1 transition-transform text-amber-400">VIEW DETAILS →</span>
               </div>
             </div>
           ))}
         </div>
       </div>
+      </SectionContainer>
 
+      <SectionContainer id="content-3">
       {/* ── SUBSECTION 3: MICRO-DRAMA & SHORT-FORM IP UNIVERSE ── */}
       <div className="relative z-10 mb-12 p-6 rounded-3xl border border-amber-500/20 bg-gradient-to-br from-neutral-950/90 via-neutral-900/60 to-amber-950/20 backdrop-blur-2xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
@@ -208,7 +225,9 @@ export default function ContentSection() {
           ))}
         </div>
       </div>
+      </SectionContainer>
 
+      <SectionContainer id="content-4">
       {/* ── SUBSECTION 4: FACTUAL & DOCUMENTARY SHOWCASE ── */}
       <div className="relative z-10 mb-12">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -265,7 +284,9 @@ export default function ContentSection() {
           ))}
         </div>
       </div>
+      </SectionContainer>
 
+      <SectionContainer id="content-5">
       {/* ── SUBSECTION 5: VERIFIED AWARDS & RECOGNITION ── */}
       <div className="relative z-10 p-6 rounded-3xl border border-neutral-800 bg-neutral-950/80 backdrop-blur-xl">
         <div className="flex items-center gap-3 mb-4">
@@ -288,6 +309,7 @@ export default function ContentSection() {
           ))}
         </div>
       </div>
-    </section>
+      </SectionContainer>
+    </>
   );
 }

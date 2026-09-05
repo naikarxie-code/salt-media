@@ -13,7 +13,7 @@ export default function StrategySection() {
   return (
     <section
       id="strategy"
-      className="relative py-4 md:py-6 lg:py-8 px-6 md:px-12 lg:px-20 overflow-hidden bg-black flex flex-col justify-center h-full min-h-screen"
+      className="relative py-4 md:py-6 lg:py-8 px-6 md:px-12 lg:px-20 bg-black flex flex-col justify-center min-h-screen"
     >
       {/* ── Background Aesthetics ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -55,11 +55,11 @@ export default function StrategySection() {
       </Reveal>
 
       {/* Operating Logic Pipeline Banner */}
-      <div className="relative z-10 mb-3 p-2 rounded-lg border border-amber-400/30 bg-neutral-950/80 backdrop-blur-xl flex items-center justify-between gap-3">
+      <div className="relative z-10 mb-3 p-2 rounded-lg border border-amber-400/30 bg-neutral-950/80 backdrop-blur-xl flex items-center justify-between gap-3 overflow-hidden">
         <span className="text-[9px] md:text-[10px] uppercase font-mono tracking-widest text-amber-400 font-semibold shrink-0">
           OPERATING LOGIC
         </span>
-        <div className="text-[10px] md:text-xs font-mono text-white text-right font-medium">
+        <div className="text-[10px] md:text-xs font-mono text-white text-right font-medium truncate min-w-0">
           {model.operatingLogic}
         </div>
       </div>
