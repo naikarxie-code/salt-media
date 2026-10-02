@@ -229,11 +229,13 @@ export const MICRO_DRAMAS: MicroDrama[] = [
     title: "Notice Period",
     category: "Workplace",
     platform: "Vertical Mobile",
+    image: "/images/Notice%20Period.png",
   },
   {
     title: "Narbhakshi",
     category: "Thriller",
     platform: "Vertical Mobile",
+    image: "/images/NARBHAKSHI%20poster%202.jpg.jpeg",
   },
   {
     title: "Dhokebaaz Judwaa",
